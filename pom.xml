@@ -62,6 +62,11 @@
         <finalName>WebXemPhim</finalName>
         <plugins>
             <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat9-maven-plugin</artifactId>
+                <version>2.2</version>
+            </plugin>
+            <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>3.1.0</version>
             </plugin>
