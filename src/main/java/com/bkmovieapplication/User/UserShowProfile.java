@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import static com.bkmovieapplication.utility.CommonUtility.forwardToPage;
+import javax.servlet.http.Cookie;
 
 /**
  *
@@ -19,6 +20,17 @@ public class UserShowProfile extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Cookie arr[] = request.getCookies();
+        if (arr != null) {
+            for (Cookie o : arr) {
+                if (o.getName().equals("emailC")) {
+                    request.setAttribute("email", o.getValue());
+                }
+                if (o.getName().equals("passC")) {
+                    request.setAttribute("password", o.getValue());
+                }
+            }
+        }
         forwardToPage("/page/profile.jsp", request, response);
     }
 

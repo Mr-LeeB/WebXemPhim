@@ -31,17 +31,17 @@ public class UserLoginServlet extends HttpServlet {
         
         session.setMaxInactiveInterval(60 * 60 * 24);
         //luu account len tren cookie
-        Cookie u = new Cookie("email", email);
-        Cookie p = new Cookie("password", password);
+        Cookie e = new Cookie("emailC", email);
+        Cookie p = new Cookie("passC", password);
         if (remember != null) {
             p.setMaxAge(60 * 60 * 24);
         } else {
             p.setMaxAge(0);
         }
 
-        u.setMaxAge(60 * 60 * 24 * 365);//1 nam
+        e.setMaxAge(60 * 60 * 24 * 365);
 
-        response.addCookie(u);//luu u va p len Chrome
+        response.addCookie(e);
         response.addCookie(p);
 
         response.sendRedirect("home");

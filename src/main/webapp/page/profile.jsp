@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,8 +15,8 @@
         <div class="pic">
           <img src="./image/index/defaultAvatar.jpg" alt=""/>
         </div>
-        <div class="name">FantacyDesigns</div>
-        <div class="tag">@fantacydesigns</div>
+        <div class="name">${email}</div>
+        <div class="tag">${password}</div>
       </div>
 
       <div class="bottom-section">

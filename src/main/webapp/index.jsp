@@ -101,39 +101,40 @@
                         </div>
                         <div class="colLeft_Menu">GENERAL</div>
                         <div class="colLeft_general_item">
-                            <a class="item active" href="profile">
-                                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="25" width="25"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 2A10.13 10.13 0 0 0 2 12a10 10 0 0 0 4 7.92V20h.1a9.7 9.7 0 0 0 11.8 0h.1v-.08A10 10 0 0 0 22 12 10.13 10.13 0 0 0 12 2zM8.07 18.93A3 3 0 0 1 11 16.57h2a3 3 0 0 1 2.93 2.36 7.75 7.75 0 0 1-7.86 0zm9.54-1.29A5 5 0 0 0 13 14.57h-2a5 5 0 0 0-4.61 3.07A8 8 0 0 1 4 12a8.1 8.1 0 0 1 8-8 8.1 8.1 0 0 1 8 8 8 8 0 0 1-2.39 5.64z">
-                                </path>
-                                <path
-                                    d="M12 6a3.91 3.91 0 0 0-4 4 3.91 3.91 0 0 0 4 4 3.91 3.91 0 0 0 4-4 3.91 3.91 0 0 0-4-4zm0 6a1.91 1.91 0 0 1-2-2 1.91 1.91 0 0 1 2-2 1.91 1.91 0 0 1 2 2 1.91 1.91 0 0 1-2 2z">
-                                </path>
-                                </svg>
-                                <span>Profile</span>
-                            </a>
+                            <a class="item active" <c:if test="${sessionScope.user != null}">href="profile"</c:if>
+                               <c:if test="${sessionScope.user == null}">href="login"</c:if>>
+                                   <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="25" width="25"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                   <path
+                                       d="M12 2A10.13 10.13 0 0 0 2 12a10 10 0 0 0 4 7.92V20h.1a9.7 9.7 0 0 0 11.8 0h.1v-.08A10 10 0 0 0 22 12 10.13 10.13 0 0 0 12 2zM8.07 18.93A3 3 0 0 1 11 16.57h2a3 3 0 0 1 2.93 2.36 7.75 7.75 0 0 1-7.86 0zm9.54-1.29A5 5 0 0 0 13 14.57h-2a5 5 0 0 0-4.61 3.07A8 8 0 0 1 4 12a8.1 8.1 0 0 1 8-8 8.1 8.1 0 0 1 8 8 8 8 0 0 1-2.39 5.64z">
+                                   </path>
+                                   <path
+                                       d="M12 6a3.91 3.91 0 0 0-4 4 3.91 3.91 0 0 0 4 4 3.91 3.91 0 0 0 4-4 3.91 3.91 0 0 0-4-4zm0 6a1.91 1.91 0 0 1-2-2 1.91 1.91 0 0 1 2-2 1.91 1.91 0 0 1 2 2 1.91 1.91 0 0 1-2 2z">
+                                   </path>
+                                   </svg>
+                                   <span>Profile</span>
+                               </a>
                             <c:if test="${sessionScope.user == null}">
-                            <a class="item active" href="login">
-                                <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="30" width="30"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
-                                </path>
-                                </svg>
-                                <span>Login</span>
-                            </a>
+                                <a class="item active" href="login">
+                                    <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="30" width="30"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
+                                    </path>
+                                    </svg>
+                                    <span>Login</span>
+                                </a>
                             </c:if>
                             <c:if test="${sessionScope.user != null}">
-                            <a class="item active" href="logout">
-                                <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="30" width="30"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
-                                </path>
-                                </svg>
-                                <span>Log Out</span>
-                            </a>
+                                <a class="item active" href="logout">
+                                    <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="30" width="30"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
+                                    </path>
+                                    </svg>
+                                    <span>Log Out</span>
+                                </a>
                             </c:if>
                         </div>
                     </div>
@@ -157,8 +158,9 @@
                             </span>
                         </div>
                     </div>
-                    <div class="colCenter_carousel">
-                        <a class="exec_click" href="watch">
+                    <div class="colCenter_carousel">                                          
+                        <a class="exec_click" <c:if test="${sessionScope.user != null}">href="watch"</c:if>
+                           <c:if test="${sessionScope.user == null}">href="login"</c:if>>
                             <div class="colCenter_carousel_child">
                                 <div class="colCenter_carousel_child_cover_total">
                                     <div class="support_cover">
