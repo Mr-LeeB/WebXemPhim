@@ -1,11 +1,12 @@
+com\bkmovieapplication\utility\EmailUtility.class
+com\bkmovieapplication\User\UserLoginServlet.class
+com\bkmovieapplication\User\UserShowProfile.class
 com\bkmovieapplication\utility\HashException.class
+com\bkmovieapplication\utility\HashUtility.class
 com\bkmovieapplication\Watch\MovieServlet.class
 com\bkmovieapplication\business\User.class
 com\bkmovieapplication\User\UserLogoutServlet.class
 com\bkmovieapplication\Watch\WatchServlet.class
 com\bkmovieapplication\utility\EmailUtility$1.class
-com\bkmovieapplication\utility\EmailUtility.class
-com\bkmovieapplication\User\UserLoginServlet.class
-com\bkmovieapplication\utility\HashUtility.class
 com\bkmovieapplication\utility\CommonUtility.class
 com\bkmovieapplication\webxemphim\HomeServlet.class
