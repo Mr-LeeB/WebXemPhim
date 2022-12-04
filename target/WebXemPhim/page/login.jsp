@@ -67,12 +67,12 @@
                                     <form id="login" method="post" action="login">
                                         <div class="form-group">
                                             <label> Your Email<span class="req">*</span> </label>
-                                            <input type="email" name ="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address." autocomplete="off">
+                                            <input type="email" name ="email" value="${email}" class="form-control" id="email" required data-validation-required-message="Please enter your email address." autocomplete="off">
                                             <p class="help-block text-danger"></p>
                                         </div>
                                         <div class="form-group">
                                             <label> Password<span class="req">*</span> </label>
-                                            <input type="password" name ="password" class="form-control" id="password" required data-validation-required-message="Please enter your password" autocomplete="off">
+                                            <input type="password" name ="password" value="${password}" class="form-control" id="password" required data-validation-required-message="Please enter your password" autocomplete="off">
                                             <p class="help-block text-danger"></p>
                                         </div>
                                         <c:if test="${message} != null">

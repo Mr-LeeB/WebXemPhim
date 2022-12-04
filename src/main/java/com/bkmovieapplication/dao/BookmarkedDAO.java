@@ -22,18 +22,24 @@ public class BookmarkedDAO {
         List<Bookmarked> List = new ArrayList<>();
         String query = "select * from oj3bOO0Agn.bookmarked";
         try {
-            conn = new DBContext().getConnection();//mo ket noi voi sql
+            conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
                 List.add(new Bookmarked(rs.getInt(1),
-                        rs.getString(2),
-                        rs.getInt(3)
+                        rs.getInt(2),
+                        rs.getString(3)
                 ));
             }
             return List;
         } catch (Exception e) {
         }
         return null;
+    }
+    public static void main(String[] args) {
+        try {
+            System.out.println(new BookmarkedDAO().getALLBookmarked());
+        } catch (Exception e) {
+        }
     }
 }

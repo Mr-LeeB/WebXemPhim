@@ -19,7 +19,6 @@ public class HomeServlet extends HttpServlet {
         movie.getAMovie("TopRated");
         movie.getAMovie("Hot");
         movie.getAMovie("Upcoming");
-        //movie.getALLMovie();
         forwardToPage("page/index.jsp", request, response);
     }
 

@@ -36,12 +36,13 @@ public class MovieDAO {
                         rs.getString(6),
                         rs.getString(7)
                 ));
-            }   
+            }
             return List;
         } catch (Exception e) {
         }
         return null;
     }
+
     public List<Movie> getALLMovie() {
         List<Movie> List = new ArrayList<>();
         String query = "select * from oj3bOO0Agn.movie";
@@ -58,17 +59,18 @@ public class MovieDAO {
                         rs.getString(6),
                         rs.getString(7)
                 ));
-            }   
+            }
             return List;
         } catch (Exception e) {
         }
         return null;
     }
-        public List<Movie> getMovieInBookmarked(Integer userid) {
+
+    public List<Movie> getMovieInBookmarked(Integer userid) {
         List<Movie> List = new ArrayList<>();
-        String query = "select movie.movieId, movieName, movieStar, category, description, movieLink, imageLink\n" +
-"                from oj3bOO0Agn.movie, oj3bOO0Agn.bookmarked\n" +
-"                where movie.movieId = bookmarked.movieid and userid = ?";
+        String query = "select movie.movieId, movieName, movieStar, category, description, movieLink, imageLink\n"
+                + "                from oj3bOO0Agn.movie, oj3bOO0Agn.bookmarked\n"
+                + "                where movie.movieId = bookmarked.movieid and userid = ?";
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
@@ -88,5 +90,12 @@ public class MovieDAO {
         } catch (Exception e) {
         }
         return null;
+    }
+
+    public static void main(String[] args) {
+        try {
+            System.out.println(new MovieDAO().getMovieInBookmarked(1));
+        } catch (Exception e) {
+        }
     }
 }

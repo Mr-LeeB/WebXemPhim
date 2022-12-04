@@ -11,7 +11,7 @@
             <div class="total_child d-flex">
                 <div class="colLeft">
                     <div class="colLeft_child">
-                        <a class="exec_click" href="">
+                        <a class="exec_click" href="home">
                             <div class="colLeft_logo__content row">
                                 <span class="colLeft__Logo col-2 ps-48">
                                     <img class="w-10 h-10" src="image/index/logo.png" alt="#">
@@ -23,7 +23,7 @@
                         </a>
                         <div class="colLeft_Menu">MENU</div>
                         <div class="colLeft_menu_item">
-                            <a class="item active">
+                            <a class="item active" href="home">
                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="25"
                                      width="25" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -54,7 +54,7 @@
                         </div>
                         <div class="colLeft_Menu">PERSONAL</div>
                         <div class="colLeft_personal_item">
-                            <a class="item active">
+                            <a class="item active" href="bookmarked">
                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="25" width="25"
                                      xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z">
@@ -135,8 +135,7 @@
                         </div>
                     </div>
                     <div class="colCenter_carousel">                                          
-                        <a class="exec_click" <c:if test="${sessionScope.user != null}">href="<c:url value = '/watch'/>"</c:if>
-                           <c:if test="${sessionScope.user == null}">href="<c:url value = '/login'/>"</c:if>>
+                        <a class="exec_click" href="<c:url value = '/watch'/>">
                                <div class="colCenter_carousel_child">
                                    <div class="colCenter_carousel_child_cover_total">
                                        <div class="support_cover">
@@ -170,7 +169,7 @@
                         <div class="popular mt-5">
                             <div class="title__mini">Popular</div>
                             <div class="owl-carousel owl-theme popular__carousel position-relative">
-                            <c:forEach var="p" items="${Popular}">
+                            <c:forEach var="p" items="${ListMovieInBookmarked}">
                                 <div class="item item__tag">
                                     <a href="#">
                                         <div class="item__content">
@@ -242,13 +241,13 @@
                     <div class="upcoming mt-5">
                         <div class="title__mini">Upcoming</div>
                         <div class="owl-carousel owl-theme popular__carousel position-relative">
-                            <c:forEach var="hp" items="${Upcoming}">
+                            <c:forEach var="up" items="${Upcoming}">
                                 <div class="item item__tag">
                                     <a href="#">
                                         <div class="item__content">
-                                            <img class="img-fluid" src="${hp.imageLink}" alt="#">
+                                            <img class="img-fluid" src="${up.imageLink}" alt="#">
                                             <span class="vote">
-                                                <span class="star">${hp.movieStar}</span>
+                                                <span class="star">${up.movieStar}</span>
                                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="15"
                                                      width="15" xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -256,7 +255,7 @@
                                                 </path>
                                                 </svg>
                                             </span>
-                                            <div class="name">${hp.movieName}</div>
+                                            <div class="name">${up.movieName}</div>
                                         </div>
                                     </a>
                                 </div>

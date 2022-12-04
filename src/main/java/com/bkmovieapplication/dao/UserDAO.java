@@ -18,7 +18,7 @@ public class UserDAO {
                 + "    email,\n"
                 + "    passWord,\n"
                 + "    phoneNum)\n"
-                + "values('?','?','?','?')";
+                + "values(?,?,?,?)";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
@@ -70,9 +70,11 @@ public class UserDAO {
         }
         return false;
     }
+
     public static void main(String[] args) {
         try {
-            System.out.println(new UserDAO().checkAccountExist("quangbao","quangbaokh9a2@gmail.com"));
+            UserDAO dao = new UserDAO();
+            dao.create("quang", "quangbao9a2@gmail.com","123","123");
         } catch (Exception e) {
         }
     }

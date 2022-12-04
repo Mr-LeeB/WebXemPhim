@@ -12,7 +12,7 @@ import static com.bkmovieapplication.utility.CommonUtility.forwardToPage;
 import javax.servlet.http.Cookie;
 
 @WebServlet("/signup")
-public class UserSignUnServlet extends HttpServlet {
+public class UserSignUpServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -24,18 +24,6 @@ public class UserSignUnServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Cookie arr[] = request.getCookies();
-        if (arr != null) {
-            for (Cookie o : arr) {
-                if (o.getName().equals("emailC")) {
-                    request.setAttribute("email", o.getValue());
-                }
-                if (o.getName().equals("passC")) {
-                    request.setAttribute("password", o.getValue());
-                }
-            }
-        }
-        //b2: set user,pass to login form
-        forwardToPage("page/login.jsp", request, response);
+        doPost(request, response);
     }
 }

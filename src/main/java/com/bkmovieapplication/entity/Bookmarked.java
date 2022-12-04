@@ -43,7 +43,7 @@ public class Bookmarked implements Serializable {
     public Bookmarked() {
     }
 
-    public Bookmarked(Integer id, String movieid, Integer userid) {
+    public Bookmarked(Integer id, Integer userid, String movieid) {
         this.id = id;
         this.movieid = movieid;
         this.userid = userid;

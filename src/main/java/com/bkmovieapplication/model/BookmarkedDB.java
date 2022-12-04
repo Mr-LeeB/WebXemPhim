@@ -32,7 +32,7 @@ public class BookmarkedDB {
     public void getALLMovieInBookmarked() throws ServletException, IOException {
         List<Bookmarked> List = new ArrayList<>();
         List = bookmarkedDAO.getALLBookmarked();
-
+        request.setAttribute("ListAllBookmarked", List);
     }
 
 }
