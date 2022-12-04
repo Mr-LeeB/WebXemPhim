@@ -124,7 +124,7 @@
                         <span class="div2" style="width: 64%;"></span>
                         <div class="div3 d-flex" style="width: 18%;">
                             <c:if test="${sessionScope.user != null}">
-                                <span style="width: 70%;" class="Anonymous">${user}</span>
+                                <span style="width: 70%;" class="Anonymous">${user.userName}</span>
                             </c:if>
                             <c:if test="${sessionScope.user == null}">
                                 <span style="width: 70%;" class="Anonymous">Anonymous</span>
