@@ -199,6 +199,7 @@
                             <goal>copy</goal>
                         </goals>
                         <configuration>
+                            <appName>webxephim-bkteam</appName>
                             <artifactItems>
                                 <artifactItem>
                                     <groupId>com.heroku</groupId>
