@@ -21,11 +21,11 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- OWL CAROUSEL -->
-    <link rel="stylesheet" href="./css/owl.carousel.min.css">
-    <link rel="stylesheet" href="./css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/movie.css">
+    <link rel="stylesheet" href="css/movie.css">
 
 </head>
 
@@ -38,7 +38,7 @@
             <div class="colLeft">
                 <div class="colLeft_logo">
                     <a href="home">
-                        <img class="img-fluid" src="./image/index/logo.png" alt="">
+                        <img class="img-fluid" src="image/index/logo.png" alt="">
                     </a>
                 </div>
                 <div class="colLeft_extension">
@@ -88,7 +88,7 @@
                 </div>
                 <div class="colLeft_user">
                     <a href="">
-                        <img src="../image/index/defaultAvatar.jpg" alt="">
+                        <img src=".image/index/defaultAvatar.jpg" alt="">
                     </a>
                 </div>
             </div>
@@ -202,7 +202,7 @@
                         <div class="content">
                             <div class="image">
                                 <div class="image_cover"></div>
-                                <img class="img-fluid" src="../image/watch/similar/similar1.jpg" alt="">
+                                <img class="img-fluid" src=".image/watch/similar/similar1.jpg" alt="">
                             </div>
                             <div class="text">
                                 <div class="title">
@@ -226,7 +226,7 @@
                         <div class="content">
                             <div class="image">
                                 <div class="image_cover"></div>
-                                <img class="img-fluid" src="../image/watch/similar/similar2.jpg" alt="">
+                                <img class="img-fluid" src=".image/watch/similar/similar2.jpg" alt="">
                             </div>
                             <div class="text">
                                 <div class="title">
@@ -250,7 +250,7 @@
                         <div class="content">
                             <div class="image">
                                 <div class="image_cover"></div>
-                                <img class="img-fluid" src="../image/watch/similar/similar3.jpg" alt="">
+                                <img class="img-fluid" src=".image/watch/similar/similar3.jpg" alt="">
                             </div>
                             <div class="text">
                                 <div class="title">

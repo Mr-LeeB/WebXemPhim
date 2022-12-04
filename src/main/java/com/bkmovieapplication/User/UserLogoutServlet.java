@@ -17,7 +17,7 @@ public class UserLogoutServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         session.removeAttribute("user");
-        response.sendRedirect("home");
+        response.sendRedirect(request.getContextPath());
     }
 
     @Override
