@@ -20,7 +20,7 @@ public class UserDAO {
                 + "    phoneNum)\n"
                 + "values('?','?','?','?')";
         try {
-            conn = new DBContext().getConnection();
+            conn = new DBContext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
             ps.setString(1, username);
             ps.setString(2, email);
@@ -35,7 +35,7 @@ public class UserDAO {
         String query = "SELECT * FROM oj3bOO0Agn.user\n"
                 + "where email = ? and passWord = ?";
         try {
-            conn = new DBContext().getConnection();
+            conn = new DBContext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
             ps.setString(1, email);
             ps.setString(2, password);
@@ -56,24 +56,17 @@ public class UserDAO {
         String query = "select * from oj3bOO0Agn.user\n"
                 + "where userName = ? and email = ?";
         try {
-            conn = new DBContext().getConnection();
+            conn = new DBContext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
             ps.setString(1, username);
             ps.setString(2, email);
             rs = ps.executeQuery();
             while (rs.next()) {
-                return new User(
-                        rs.getString(2),
-                        rs.getString(3)) != null;
+                return new User(rs.getString(3), rs.getString(4)
+                ) == null;
             }
         } catch (Exception e) {
         }
-        return false;
-    }
-    public static void main(String[] args) {
-        try {
-            System.out.println(new UserDAO().checkAccountExist("quangbao","quangbaokh9a2@gmail.com"));
-        } catch (Exception e) {
-        }
+        return true;
     }
 }

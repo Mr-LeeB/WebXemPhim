@@ -135,8 +135,7 @@
                         </div>
                     </div>
                     <div class="colCenter_carousel">                                          
-                        <a class="exec_click" <c:if test="${sessionScope.user != null}">href="<c:url value = '/watch'/>"</c:if>
-                           <c:if test="${sessionScope.user == null}">href="<c:url value = '/login'/>"</c:if>>
+                        <a class="exec_click" href="watch">
                                <div class="colCenter_carousel_child">
                                    <div class="colCenter_carousel_child_cover_total">
                                        <div class="support_cover">

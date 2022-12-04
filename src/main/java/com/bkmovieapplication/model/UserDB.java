@@ -3,16 +3,14 @@ package com.bkmovieapplication.model;
 import com.bkmovieapplication.dao.UserDAO;
 import com.bkmovieapplication.entity.*;
 
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
 import static com.bkmovieapplication.utility.CommonUtility.forwardToPage;
-
 
 public class UserDB {
 
@@ -53,7 +51,7 @@ public class UserDB {
             forwardToPage("page/login.jsp", "Password does not match!", request, response);
         } else {
             boolean a = userDAO.checkAccountExist(username, email);
-            if (a == false) {
+            if (a == true) {
                 userDAO.create(username, email, password, phonenum);
                 forwardToPage("/page/login.jsp", "Sign Up Success!", request, response);
             } else {
