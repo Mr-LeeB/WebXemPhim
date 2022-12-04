@@ -13,7 +13,7 @@ public class UserDAO {
     ResultSet rs = null;
 
     public void create(String username, String email, String password, String phonenum) {
-        String query = "insert into User\n"
+        String query = "insert into oj3bOO0Agn.user\n"
                 + "values(?,?,?,?,?)";
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
@@ -29,9 +29,8 @@ public class UserDAO {
     }
 
     public User checkEmailAndPassword(String email, String password) {
-        String query = "select *\n"
-                + "  FROM User\n"
-                + "  where email = ? and passWord = ?";
+        String query = "SELECT * FROM oj3bOO0Agn.user\n"
+                + "where email = ? and passWord = ?";
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
@@ -51,7 +50,7 @@ public class UserDAO {
     }
 
     public boolean checkAccountExist(String username, String email) {
-        String query = "select * from User\n"
+        String query = "select * from oj3bOO0Agn.user\n"
                 + "where username = ? and email = ?";
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql

@@ -20,7 +20,7 @@ public class MovieDAO {
 
     public List<Movie> getCategoryMovie(String category) {
         List<Movie> List = new ArrayList<>();
-        String query = "select * from Movie\n"
+        String query = "select * from oj3bOO0Agn.movie\n"
                 + "where category = ?";
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
@@ -44,7 +44,7 @@ public class MovieDAO {
     }
     public List<Movie> getALLMovie() {
         List<Movie> List = new ArrayList<>();
-        String query = "select * from Movie";
+        String query = "select * from oj3bOO0Agn.movie";
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
@@ -66,9 +66,9 @@ public class MovieDAO {
     }
         public List<Movie> getMovieInBookmarked(Integer userid) {
         List<Movie> List = new ArrayList<>();
-        String query = "select Movie.movieId, movieName, movieStar, category, description, movieLink, imageLink\n"
-                + "from Movie, Bookmarked\n"
-                + "where Movie.movieId = Bookmarked.movieid and userid = ?";
+        String query = "select movie.movieId, movieName, movieStar, category, description, movieLink, imageLink\n" +
+"                from oj3bOO0Agn.movie, oj3bOO0Agn.bookmarked\n" +
+"                where movie.movieId = bookmarked.movieid and userid = ?";
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);

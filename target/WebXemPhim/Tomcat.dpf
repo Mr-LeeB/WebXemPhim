@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/WebXemPhim">
+  <Resource auth="Container" driverClassName="com.mysql.cj.jdbc.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="webxephim-bkteam" password="cf4f8883" type="javax.sql.DataSource" url="jdbc:mysql://us-cdbr-east-06.cleardb.net:3306/heroku_d274054322b1591?reconnect=true" username="b56b55b5c4f707"/>
+</Context>

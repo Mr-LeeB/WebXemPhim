@@ -20,7 +20,7 @@ public class BookmarkedDAO {
 
     public List<Bookmarked> getALLBookmarked() {
         List<Bookmarked> List = new ArrayList<>();
-        String query = "select * from Bookmarked";
+        String query = "select * from oj3bOO0Agn.bookmarked";
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
