@@ -21,7 +21,7 @@ import javax.validation.constraints.NotNull;
  * @author Admin
  */
 @Entity
-@Table(name = "Bookmarked")
+@Table(name = "bookmarked")
 @NamedQueries({
     @NamedQuery(name = "Bookmarked.findAll", query = "SELECT b FROM Bookmarked b"),
     @NamedQuery(name = "Bookmarked.findById", query = "SELECT b FROM Bookmarked b WHERE b.id = :id")})
@@ -34,10 +34,10 @@ public class Bookmarked implements Serializable {
     @Column(name = "ID")
     private Integer id;
     @JoinColumn(name = "movieid", referencedColumnName = "movieId")
-    @ManyToOne
+    @ManyToOne(optional = false)
     private String movieid;
     @JoinColumn(name = "userid", referencedColumnName = "userId")
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Integer userid;
 
     public Bookmarked() {

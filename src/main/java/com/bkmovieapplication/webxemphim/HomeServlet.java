@@ -1,6 +1,7 @@
 package com.bkmovieapplication.webxemphim;
 
-import com.bkmovieapplication.model.MovieDB;
+import com.bkmovieapplication.entity.User;
+import com.bkmovieapplication.model.*;
 import static com.bkmovieapplication.utility.CommonUtility.forwardToPage;
 
 import java.io.IOException;
@@ -9,16 +10,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "HomeServlet", urlPatterns = {"","/home"})
 public class HomeServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         MovieDB movie = new MovieDB(request, response);
-        movie.getAMovie("Popular");
-        movie.getAMovie("TopRated");
-        movie.getAMovie("Hot");
-        movie.getAMovie("Upcoming");
+        movie.getListCategoryMovie("Popular");
+        movie.getListCategoryMovie("TopRated");
+        movie.getListCategoryMovie("Hot");
+        movie.getListCategoryMovie("Upcoming");
+
         forwardToPage("page/index.jsp", request, response);
     }
 

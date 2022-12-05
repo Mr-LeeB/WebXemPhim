@@ -1,5 +1,6 @@
 com\bkmovieapplication\entity\User_.class
 com\bkmovieapplication\model\MovieDB.class
+com\bkmovieapplication\Bookmarked\DeleteAItemServlet.class
 com\bkmovieapplication\dao\UserDAO.class
 com\bkmovieapplication\entity\Comment.class
 com\bkmovieapplication\Bookmarked\BookmarkedServlet.class

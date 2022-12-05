@@ -100,6 +100,16 @@ body {
     margin-bottom: 25px;
     color: gray;
 }
+.colLeft_personal_item .active{
+    color: #335fee !important;
+}
+.colLeft_personal_item .active svg {
+    color: #335fee !important;
+}
+.colLeft_personal_item .active span {
+    font-weight: 500;
+    color: #335fee !important;
+}
 .colLeft_personal_item .item:hover {
     color: rgba(213, 209, 209, 0.995);
     transition: all 0.5s;
@@ -144,6 +154,7 @@ body {
     top: 0;
     left: 18%;
     overflow: auto;
+    background-color: red;
 }
 .colCenter_menu {
     justify-content: space-between;
@@ -537,41 +548,3 @@ body {
     background-color: #282829;
     transition: all .5s;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -29,8 +29,14 @@ public class MovieDB {
         this.response = response;
         movieDAO = new MovieDAO();
     }
+    public void getAMovie(String movieid) throws ServletException, IOException {
+        Movie movie = movieDAO.getAMovieByID(movieid);
+        if(movie != null){
+            request.setAttribute("movieWatchPage", movie);
+        }
+    }
 
-    public void getAMovie(String category) throws ServletException, IOException {
+    public void getListCategoryMovie(String category) throws ServletException, IOException {
         List<Movie> List = new ArrayList<>();
         List = movieDAO.getCategoryMovie(category);
         if (List != null) {
@@ -43,14 +49,6 @@ public class MovieDB {
         List = movieDAO.getALLMovie();
         if (List != null) {
             request.setAttribute("ListALLMovie", List);
-        }
-    }
-
-    public void getMovieInBookmarked(Integer userId) throws ServletException, IOException {
-        List<Movie> List = new ArrayList<>();
-        List = movieDAO.getMovieInBookmarked(userId);
-        if (List != null) {
-            request.setAttribute("ListMovieInBookmarked", List);
         }
     }
 }

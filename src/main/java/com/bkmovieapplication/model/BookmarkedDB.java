@@ -35,4 +35,15 @@ public class BookmarkedDB {
         request.setAttribute("ListAllBookmarked", List);
     }
 
+    public void deleteMovieInBookmarked(Integer userId, String movieId) throws ServletException, IOException {
+        boolean List = bookmarkedDAO.delete(userId, movieId);
+    }
+
+    public void getMovieInBookmarked(Integer userId) throws ServletException, IOException {
+        List<Movie> List = new ArrayList<>();
+        List = bookmarkedDAO.getMovieInBookmarked(userId);
+        if (List != null) {
+            request.setAttribute("ListMovieInBookmarked", List);
+        }
+    }
 }

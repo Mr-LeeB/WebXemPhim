@@ -22,7 +22,7 @@ import javax.validation.constraints.Size;
  * @author Admin
  */
 @Entity
-@Table(name = "Comment")
+@Table(name = "comment")
 @NamedQueries({
     @NamedQuery(name = "Comment.findAll", query = "SELECT c FROM Comment c"),
     @NamedQuery(name = "Comment.findByCmtID", query = "SELECT c FROM Comment c WHERE c.cmtID = :cmtID"),
@@ -47,7 +47,7 @@ public class Comment implements Serializable {
     private Movie movieID;
     @JoinColumn(name = "userID", referencedColumnName = "userId")
     @ManyToOne
-    private User userID;
+    private Integer userID;
 
     public Comment() {
     }
@@ -88,11 +88,11 @@ public class Comment implements Serializable {
         this.movieID = movieID;
     }
 
-    public User getUserID() {
+    public Integer getUserID() {
         return userID;
     }
 
-    public void setUserID(User userID) {
+    public void setUserID(Integer userID) {
         this.userID = userID;
     }
 

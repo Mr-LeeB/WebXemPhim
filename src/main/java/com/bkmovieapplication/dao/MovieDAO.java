@@ -11,16 +11,45 @@ import java.sql.ResultSet;
 import com.bkmovieapplication.context.DBContext;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 public class MovieDAO {
 
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
+    String dbquery = "oj3bOO0Agn";
+
+    public Movie getAMovieByID(String movieId) {
+        String query = "select * from " + dbquery + ".movie\n"
+                + "where movieId = ?";
+        try {
+            conn = new DBContext().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1, movieId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Movie(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDate(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11)
+                );
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
 
     public List<Movie> getCategoryMovie(String category) {
         List<Movie> List = new ArrayList<>();
-        String query = "select * from oj3bOO0Agn.movie\n"
+        String query = "select * from " + dbquery + ".movie\n"
                 + "where category = ?";
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
@@ -32,9 +61,13 @@ public class MovieDAO {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
-                        rs.getString(5),
+                        rs.getDate(5),
                         rs.getString(6),
-                        rs.getString(7)
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11)
                 ));
             }
             return List;
@@ -45,7 +78,7 @@ public class MovieDAO {
 
     public List<Movie> getALLMovie() {
         List<Movie> List = new ArrayList<>();
-        String query = "select * from oj3bOO0Agn.movie";
+        String query = "select * from " + dbquery + ".movie";
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
@@ -55,35 +88,13 @@ public class MovieDAO {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
-                        rs.getString(5),
+                        rs.getDate(5),
                         rs.getString(6),
-                        rs.getString(7)
-                ));
-            }
-            return List;
-        } catch (Exception e) {
-        }
-        return null;
-    }
-
-    public List<Movie> getMovieInBookmarked(Integer userid) {
-        List<Movie> List = new ArrayList<>();
-        String query = "select movie.movieId, movieName, movieStar, category, description, movieLink, imageLink\n"
-                + "                from oj3bOO0Agn.movie, oj3bOO0Agn.bookmarked\n"
-                + "                where movie.movieId = bookmarked.movieid and userid = ?";
-        try {
-            conn = new DBContext().getConnection();//mo ket noi voi sql
-            ps = conn.prepareStatement(query);
-            ps.setInt(1, userid);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                List.add(new Movie(rs.getString(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6),
-                        rs.getString(7)
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11)
                 ));
             }
             return List;
@@ -94,7 +105,7 @@ public class MovieDAO {
 
     public static void main(String[] args) {
         try {
-            System.out.println(new MovieDAO().getMovieInBookmarked(1));
+            System.out.println(new MovieDAO().getAMovieByID("361743").getNameEnglish());
         } catch (Exception e) {
         }
     }

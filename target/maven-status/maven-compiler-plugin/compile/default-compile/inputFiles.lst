@@ -14,6 +14,7 @@ D:\UTE\LapTrinhWeb\Project\WebXemPhim\src\main\java\com\bkmovieapplication\dao\M
 D:\UTE\LapTrinhWeb\Project\WebXemPhim\src\main\java\com\bkmovieapplication\entity\Bookmarked.java
 D:\UTE\LapTrinhWeb\Project\WebXemPhim\src\main\java\com\bkmovieapplication\entity\User.java
 D:\UTE\LapTrinhWeb\Project\WebXemPhim\src\main\java\com\bkmovieapplication\Watch\MovieServlet.java
+D:\UTE\LapTrinhWeb\Project\WebXemPhim\src\main\java\com\bkmovieapplication\Bookmarked\DeleteAItemServlet.java
 D:\UTE\LapTrinhWeb\Project\WebXemPhim\src\main\java\com\bkmovieapplication\Bookmarked\BookmarkedServlet.java
 D:\UTE\LapTrinhWeb\Project\WebXemPhim\src\main\java\com\bkmovieapplication\model\UserDB.java
 D:\UTE\LapTrinhWeb\Project\WebXemPhim\src\main\java\com\bkmovieapplication\webxemphim\HomeServlet.java

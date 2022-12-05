@@ -20,7 +20,7 @@ public class BookmarkedServlet extends HttpServlet {
         HttpSession sesstion = request.getSession();
         User user = (User) sesstion.getAttribute("user");
         
-        MovieDB bookmarked = new MovieDB(request, response);
+        BookmarkedDB bookmarked = new BookmarkedDB(request, response);
         bookmarked.getMovieInBookmarked(user.getUserId());
         
         forwardToPage("page/bookmarked.jsp", request, response);

@@ -172,9 +172,9 @@
                             <div class="owl-carousel owl-theme popular__carousel position-relative">
                             <c:forEach var="p" items="${Popular}">
                                 <div class="item item__tag">
-                                    <a href="#">
+                                    <a href="watch?moviechoosed=${p.movieId}">
                                         <div class="item__content">
-                                            <img class="img-fluid" src="${p.imageLink}" alt="#">
+                                            <img class="img-fluid" src="${p.imagemin}" alt="#">
                                             <span class="vote">
                                                 <span class="star">${p.movieStar}</span>
                                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="15"
@@ -184,7 +184,7 @@
                                                 </path>
                                                 </svg>
                                             </span>
-                                            <div class="name">${p.movieName}</div>
+                                            <div class="name">${p.nameEnglish}</div>
                                         </div>
                                     </a>
                                 </div>
@@ -196,9 +196,9 @@
                         <div class="owl-carousel owl-theme popular__carousel position-relative">
                             <c:forEach var="t" items="${TopRated}">
                                 <div class="item item__tag">
-                                    <a href="#">
+                                    <a href="watch?moviechoosed=${t.movieId}">
                                         <div class="item__content">
-                                            <img class="img-fluid" src="${t.imageLink}" alt="#">
+                                            <img class="img-fluid" src="${t.imagemin}" alt="#">
                                             <span class="vote">
                                                 <span class="star">${t.movieStar}</span>
                                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="15"
@@ -208,7 +208,7 @@
                                                 </path>
                                                 </svg>
                                             </span>
-                                            <div class="name">${t.movieName}</div>
+                                            <div class="name">${t.nameEnglish}</div>
                                         </div>
                                     </a>
                                 </div>
@@ -220,9 +220,9 @@
                         <div class="owl-carousel owl-theme popular__carousel position-relative">
                             <c:forEach var="h" items="${Hot}">
                                 <div class="item item__tag">
-                                    <a href="#">
+                                    <a href="watch?moviechoosed=${h.movieId}">
                                         <div class="item__content">
-                                            <img class="img-fluid" src="${h.imageLink}" alt="#">
+                                            <img class="img-fluid" src="${h.imagemin}" alt="#">
                                             <span class="vote">
                                                 <span class="star">${h.movieStar}</span>
                                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="15"
@@ -232,7 +232,7 @@
                                                 </path>
                                                 </svg>
                                             </span>
-                                            <div class="name">${h.movieName}</div>
+                                            <div class="name">${h.nameEnglish}</div>
                                         </div>
                                     </a>
                                 </div>
@@ -244,9 +244,9 @@
                         <div class="owl-carousel owl-theme popular__carousel position-relative">
                             <c:forEach var="up" items="${Upcoming}">
                                 <div class="item item__tag">
-                                    <a href="#">
+                                    <a href="watch?moviechoosed=${up.movieId}">
                                         <div class="item__content">
-                                            <img class="img-fluid" src="${up.imageLink}" alt="#">
+                                            <img class="img-fluid" src="${up.imagemin}" alt="#">
                                             <span class="vote">
                                                 <span class="star">${up.movieStar}</span>
                                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="15"
@@ -256,7 +256,7 @@
                                                 </path>
                                                 </svg>
                                             </span>
-                                            <div class="name">${up.movieName}</div>
+                                            <div class="name">${up.nameEnglish}</div>
                                         </div>
                                     </a>
                                 </div>
