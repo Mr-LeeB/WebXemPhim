@@ -154,6 +154,7 @@ body {
     top: 0;
     left: 18%;
     overflow: auto;
+    background-color: red;
 }
 .colCenter_menu {
     justify-content: space-between;

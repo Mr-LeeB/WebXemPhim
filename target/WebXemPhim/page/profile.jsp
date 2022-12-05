@@ -27,9 +27,14 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="css/index.css">
-
-
         <link rel="stylesheet" href="css/profile.css">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+        <!--         Bootstrap CSS 
+                <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+                 Font Awesome CSS 
+                <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>-->
     </head>
 
     <body>
@@ -142,31 +147,97 @@
                         </div>
                     </div>
                 </div>
-                <div class="colCenter">
-                    <div class="parent">
-                        <div class="box-one">
-                            <h1>
-                                Hi,<br />
-                                I?m 
-                                <span class="color-secondary">Akhtar Abbas
-                                </span>
-                                <br />
-                                I,m a <span class="color-secondary">Web Developer</span>, at 
-                                <a class="color-secondary" target="_blank" href="http://jsdevs.dev">JSdevs</a> 
-                            </h1>
-                            <div style="margin-top:50px;">
-                                <a class="contact-link" target="_blank" href="https://www.instagram.com/akhtar_sheraliat/"> Contact Me</a> </div>
+                <div class="colCenter" style=" width: 82%; height: 800px">
+                    <div class="colCenter_menu d-flex">
+                        <div class="div1 d-flex" style="width: 100%;">
+                            <span style="width: 100%;font-size: 35px;font-weight: 700" class="Movie active">ACCOUNT SETTINGS</span>
                         </div>
-                        <div class="box-two">
-                            <div class="image" >
-                                <img src="https://s.cdpn.io/profiles/user/1206184/512.jpg?1568477798" >
+                    </div>
+                    <div class="student-profile py-4">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card shadow-sm">
+                                        <div class="card-header bg-transparent text-center">
+                                            <img class="profile_img" style="width: 150px; height: 150px;" src="image/index/defaultAvatar.jpg" alt="">
+                                            <h3>${user.userName}</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="mb-0"><strong class="pr-1">Email: </strong>${user.email}</p>
+                                            <p class="mb-0"><strong class="pr-1">User Name: </strong>${user.userName}</p>
+                                            <p class="mb-0"><strong class="pr-1">Phone: </strong>${user.phoneNum}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="card shadow-sm">
+                                        <div class="card-header bg-transparent border-0">
+                                            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Change Information</h3>
+                                        </div>
+                                        <div class="card-body pt-0">
+                                            <form action="update" method="post">
+                                                <table class="table table-bordered">
+
+                                                    <tr>
+                                                        <th width="30%">Email</th>
+                                                        <td width="2%">:</td>
+                                                        <td>
+                                                            <input type="email" name ="email" value="${user.email}" class="form-control" id="email" required data-validation-required-message="Please enter your email address." autocomplete="off">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th width="30%">User Namer</th>
+                                                        <td width="2%">:</td>
+                                                        <td>
+                                                            <input type="text" name = "username" value="${user.userName}" class="form-control" id="username" required data-validation-required-message="Please enter your user name." autocomplete="off">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th width="30%">Phone</th>
+                                                        <td width="2%">:</td>
+                                                        <td>
+                                                            <input type="tel" name = "phonenum" value="${user.phoneNum}" class="form-control" id="phonenum" required data-validation-required-message="Please enter your phone number." autocomplete="off">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th width="30%">Pass Word</th>
+                                                        <td width="2%">:</td>
+                                                        <td>
+                                                            <input type="password" name ="password" class="form-control" id="password" required data-validation-required-message="Please enter your password" autocomplete="off">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th width="30%">New Pass Word</th>
+                                                        <td width="2%">:</td>
+                                                        <td><input type="password" name = "newpassword" class="form-control" id="confirmpassword" required data-validation-required-message="Please confirm your password" autocomplete="off">
+                                                        </td>
+                                                    </tr>
+
+                                                </table>
+                                                <div class="mrgn-30-top">
+                                                    <button type="submit" class="btn btn-larger"/>
+                                                    Update
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div style="height: 26px"></div>
+                                    <div class="card shadow-sm">
+                                        <div class="card-header bg-transparent border-0">
+                                            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Other Information</h3>
+                                        </div>
+                                        <div class="card-body pt-0">
+                                            <p>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="colRight">
 
-                </div>
             </div>
         </div>
 

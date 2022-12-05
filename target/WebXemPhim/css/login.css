@@ -35,7 +35,7 @@ btn {
 
 
 }
-.btn-larger:hover, .btn-larger:focus, .btn-larger:active, .btn-larger.active, .open .dropdown-toggle.btn-larger {
+.btn-larger:hover, .btn-larger:focus, .btn-larger:active, .btn-larger.active, .open .dropdown-toggle .btn-larger {
     border-color: #F7CA18;
     color: #fff;
     background-color: #F7CA18;

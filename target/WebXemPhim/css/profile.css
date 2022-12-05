@@ -1,46 +1,34 @@
-.parent {
-  background-color: #252E3B;
-  height: 400px;
-  display: flex;
+body {
+    background: #67B26F;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4ca2cd, #67B26F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    color: #000;
 }
-h1 {
-  margin: 0px;
-  font-family: monospace;
+.student-profile .card {
+    border-radius: 10px;
 }
-.box-one {
-  width: 35%;
-  color: white;
-  background-color: #252E3B;
-  padding: 50px;
-}
-.box-two {
-  width: 80%;
-  background: linear-gradient(-57deg, #F0DA50 63%, #252E3B 42%);
-  color: white;
-}
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 50%;
-  border: 3px solid #F0DA50;
-}
-.image {
-    height: 250px;
-    width: 250px;
+.student-profile .card .card-header .profile_img img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 10px auto;
+    border: 10px solid #ccc;
     border-radius: 50%;
-    margin-top: 8%;
-    margin-left: 27%;
 }
-.color-secondary, a {
-  color: #F0DA50;
-  text-decoration: none;
+.student-profile .card h3 {
+    font-size: 20px;
+    font-weight: 700;
 }
-.contact-link {
-  padding: 10px 30px;
-  background: #F7DF1E;
-  border-radius: 5px;
-  font-family: monospace;
-  font-weight: 700;
-  font-size: 18px;
-  color: #000000;
+
+.btn-larger:hover, .btn-larger:focus, .btn-larger:active, .btn-larger {
+    border-color: #F7CA18;
+    color: #fff;
+    background-color: #F7CA18;
+    border-radius: 0
+}
+.btn .btn-larger{
+    background-color: red;
 }

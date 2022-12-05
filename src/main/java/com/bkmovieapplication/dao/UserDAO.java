@@ -54,7 +54,7 @@ public class UserDAO {
 
     public boolean checkAccountExist(String username, String email) {
         String query = "select * from oj3bOO0Agn.user\n"
-                + "where userName = ? and email = ?";
+                + "where userName = ? or email = ?";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
@@ -74,7 +74,7 @@ public class UserDAO {
     public static void main(String[] args) {
         try {
             UserDAO dao = new UserDAO();
-            dao.create("tranchikien", "tranchikien@gmail.com","kien","123456");
+            System.out.println( dao.checkAccountExist("tranchikien", "tranchikien@gmail.com"));
         } catch (Exception e) {
         }
     }
