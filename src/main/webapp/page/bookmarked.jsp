@@ -3,7 +3,32 @@
 <html lang="en">
 
     <head>
-        <%@include file="common.jsp" %>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Movie Website</title>
+
+        <!-- FONT-AWESOME -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.0/css/all.min.css"
+              integrity="sha512-eBNnVs5xPOVglLWDGXyZnZZ2K2ixXhR/3aECgCpFnW2dGCd/yiqXZ6fcB3BubeA91kM6NX234b6Wrah8RiYAPA=="
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+              integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- BOOTSTRAP -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+        <!-- OWL CAROUSEL -->
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/index.css">
+
+
         <link rel="stylesheet" href="css/item.css">
     </head>
 
@@ -24,7 +49,7 @@
                         </a>
                         <div class="colLeft_Menu">MENU</div>
                         <div class="colLeft_menu_item">
-                            <a class="item active" href="home">
+                            <a class="item" href="home">
                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
                                      height="25" width="25" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -55,7 +80,7 @@
                         </div>
                         <div class="colLeft_Menu">PERSONAL</div>
                         <div class="colLeft_personal_item">
-                            <a class="item '" href="bookmarked">
+                            <a class="item active" href="bookmarked">
                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16"
                                      height="25" width="25" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -126,7 +151,7 @@
                         <span class="div2" style="width: 64%;"></span>
                         <div class="div3 d-flex" style="width: 18%;">
                             <c:if test="${sessionScope.user != null}">
-                                <span style="width: 70%;" class="Anonymous">${user.userName}</span>
+                                <span style="width: 70%;" class="Anonymous">${user.userName}${message}</span>
                             </c:if>
                             <c:if test="${sessionScope.user == null}">
                                 <span style="width: 70%;" class="Anonymous">Anonymous</span>
@@ -144,15 +169,14 @@
                         <c:forEach var="p" items="${ListMovieInBookmarked}">
                             <li>
                                 <h2>
-                                    <img class="img-fluid" src="${p.imageLink}" alt="#">
+                                    <img class="img-fluid" src="${p.imagemin}" alt="#">
                                 </h2>
-                                <h3>${p.movieName}</h3>
+                                <h3>${p.nameEnglish}</h3>
                                 <p>
                                     ${p.category}
-                                    ${p.movieId}
                                 </p>
                                 <a href="dodelete?movieID=${p.movieId}">
-                                <button type="button">Delete</button>
+                                    <button type="button">Delete</button>
                                 </a>
                                 <button>Watch</button>
                             </li>

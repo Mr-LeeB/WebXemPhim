@@ -3,7 +3,32 @@
 <html lang="en">
 
     <head>
-        <%@include file="common.jsp" %>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Movie Website</title>
+
+        <!-- FONT-AWESOME -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.0/css/all.min.css"
+              integrity="sha512-eBNnVs5xPOVglLWDGXyZnZZ2K2ixXhR/3aECgCpFnW2dGCd/yiqXZ6fcB3BubeA91kM6NX234b6Wrah8RiYAPA=="
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+              integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- BOOTSTRAP -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+        <!-- OWL CAROUSEL -->
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/index.css">
+
+
     </head>
 
     <body>
@@ -54,31 +79,31 @@
                         </div>
                         <div class="colLeft_Menu">PERSONAL</div>
                         <div class="colLeft_personal_item">
-                            <a class="item active" <c:if test="${sessionScope.user != null}">href="bookmarked"</c:if>
+                            <a class="item" <c:if test="${sessionScope.user != null}">href="bookmarked"</c:if>
                                <c:if test="${sessionScope.user == null}">href="login"</c:if>>
-                                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="25" width="25"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z">
-                                </path>
-                                <path
-                                    d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z">
-                                </path>
-                                </svg>
-                                <span>Bookmarked</span>
-                            </a>
-                            <a class="item active">
-                                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="25"
-                                     width="25" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M536.1 273H488c-4.4 0-8 3.6-8 8v275.3c0 2.6 1.2 5 3.3 6.5l165.3 120.7c3.6 2.6 8.6 1.9 11.2-1.7l28.6-39c2.7-3.7 1.9-8.7-1.7-11.2L544.1 528.5V281c0-4.4-3.6-8-8-8zm219.8 75.2l156.8 38.3c5 1.2 9.9-2.6 9.9-7.7l.8-161.5c0-6.7-7.7-10.5-12.9-6.3L752.9 334.1a8 8 0 0 0 3 14.1zm167.7 301.1l-56.7-19.5a8 8 0 0 0-10.1 4.8c-1.9 5.1-3.9 10.1-6 15.1-17.8 42.1-43.3 80-75.9 112.5a353 353 0 0 1-112.5 75.9 352.18 352.18 0 0 1-137.7 27.8c-47.8 0-94.1-9.3-137.7-27.8a353 353 0 0 1-112.5-75.9c-32.5-32.5-58-70.4-75.9-112.5A353.44 353.44 0 0 1 171 512c0-47.8 9.3-94.2 27.8-137.8 17.8-42.1 43.3-80 75.9-112.5a353 353 0 0 1 112.5-75.9C430.6 167.3 477 158 524.8 158s94.1 9.3 137.7 27.8A353 353 0 0 1 775 261.7c10.2 10.3 19.8 21 28.6 32.3l59.8-46.8C784.7 146.6 662.2 81.9 524.6 82 285 82.1 92.6 276.7 95 516.4 97.4 751.9 288.9 942 524.8 942c185.5 0 343.5-117.6 403.7-282.3 1.5-4.2-.7-8.9-4.9-10.4z">
-                                </path>
-                                </svg>
-                                <span>History</span>
-                            </a>
-                        </div>
-                        <div class="colLeft_Menu">GENERAL</div>
-                        <div class="colLeft_general_item">
-                            <a class="item active" <c:if test="${sessionScope.user != null}">href="profile"</c:if>
+                                   <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="25" width="25"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                   <path fill-rule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z">
+                                   </path>
+                                   <path
+                                       d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z">
+                                   </path>
+                                   </svg>
+                                   <span>Bookmarked</span>
+                               </a>
+                               <a class="item">
+                                   <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="25"
+                                        width="25" xmlns="http://www.w3.org/2000/svg">
+                                   <path
+                                       d="M536.1 273H488c-4.4 0-8 3.6-8 8v275.3c0 2.6 1.2 5 3.3 6.5l165.3 120.7c3.6 2.6 8.6 1.9 11.2-1.7l28.6-39c2.7-3.7 1.9-8.7-1.7-11.2L544.1 528.5V281c0-4.4-3.6-8-8-8zm219.8 75.2l156.8 38.3c5 1.2 9.9-2.6 9.9-7.7l.8-161.5c0-6.7-7.7-10.5-12.9-6.3L752.9 334.1a8 8 0 0 0 3 14.1zm167.7 301.1l-56.7-19.5a8 8 0 0 0-10.1 4.8c-1.9 5.1-3.9 10.1-6 15.1-17.8 42.1-43.3 80-75.9 112.5a353 353 0 0 1-112.5 75.9 352.18 352.18 0 0 1-137.7 27.8c-47.8 0-94.1-9.3-137.7-27.8a353 353 0 0 1-112.5-75.9c-32.5-32.5-58-70.4-75.9-112.5A353.44 353.44 0 0 1 171 512c0-47.8 9.3-94.2 27.8-137.8 17.8-42.1 43.3-80 75.9-112.5a353 353 0 0 1 112.5-75.9C430.6 167.3 477 158 524.8 158s94.1 9.3 137.7 27.8A353 353 0 0 1 775 261.7c10.2 10.3 19.8 21 28.6 32.3l59.8-46.8C784.7 146.6 662.2 81.9 524.6 82 285 82.1 92.6 276.7 95 516.4 97.4 751.9 288.9 942 524.8 942c185.5 0 343.5-117.6 403.7-282.3 1.5-4.2-.7-8.9-4.9-10.4z">
+                                   </path>
+                                   </svg>
+                                   <span>History</span>
+                               </a>
+                            </div>
+                            <div class="colLeft_Menu">GENERAL</div>
+                            <div class="colLeft_general_item">
+                                <a class="item active" <c:if test="${sessionScope.user != null}">href="profile"</c:if>
                                <c:if test="${sessionScope.user == null}">href="login"</c:if>>
                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="25" width="25"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -137,39 +162,39 @@
                     </div>
                     <div class="colCenter_carousel">                                          
                         <a class="exec_click" href="<c:url value = '/watch'/>">
-                               <div class="colCenter_carousel_child">
-                                   <div class="colCenter_carousel_child_cover_total">
-                                       <div class="support_cover">
-                                           <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" class="text-white"
-                                                height="35" width="35" xmlns="http://www.w3.org/2000/svg">
-                                           <path
-                                               d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z">
-                                           </path>
-                                           </svg>
-                                       </div>
-                                   </div>
-                                   <!-- CAROUSEL -->
-                                   <!-- data-bs-ride="carousel" -->
-                                   <div id="carouselExampleCaptions" class="carousel slide">
-                                       <div id="carousel-inner" class="carousel-inner">                 
-                                       </div>
-                                       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                                               data-bs-slide="prev">
-                                           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                           <span class="visually-hidden">Previous</span>
-                                       </button>
-                                       <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                                               data-bs-slide="next">
-                                           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                           <span class="visually-hidden">Next</span>
-                                       </button>
-                                   </div>
-                               </div>
-                           </a>
-                        </div>
-                        <div class="popular mt-5">
-                            <div class="title__mini">Popular</div>
-                            <div class="owl-carousel owl-theme popular__carousel position-relative">
+                            <div class="colCenter_carousel_child">
+                                <div class="colCenter_carousel_child_cover_total">
+                                    <div class="support_cover">
+                                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" class="text-white"
+                                             height="35" width="35" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z">
+                                        </path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <!-- CAROUSEL -->
+                                <!-- data-bs-ride="carousel" -->
+                                <div id="carouselExampleCaptions" class="carousel slide">
+                                    <div id="carousel-inner" class="carousel-inner">                 
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                                            data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                                            data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="popular mt-5">
+                        <div class="title__mini">Popular</div>
+                        <div class="owl-carousel owl-theme popular__carousel position-relative">
                             <c:forEach var="p" items="${Popular}">
                                 <div class="item item__tag">
                                     <a href="watch?moviechoosed=${p.movieId}">

@@ -4,7 +4,6 @@
  */
 package com.bkmovieapplication.model;
 
-import com.bkmovieapplication.dao.MovieDAO;
 import com.bkmovieapplication.entity.*;
 
 import com.bkmovieapplication.dao.*;
@@ -14,9 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-
-import static com.bkmovieapplication.utility.CommonUtility.forwardToPage;
-import java.util.ArrayList;
 
 public class MovieDB {
 
@@ -37,16 +33,14 @@ public class MovieDB {
     }
 
     public void getListCategoryMovie(String category) throws ServletException, IOException {
-        List<Movie> List = new ArrayList<>();
-        List = movieDAO.getCategoryMovie(category);
+        List<Movie> List = movieDAO.getCategoryMovie(category);
         if (List != null) {
             request.setAttribute(category, List);
         }
     }
 
     public void getALLMovie() throws ServletException, IOException {
-        List<Movie> List = new ArrayList<>();
-        List = movieDAO.getALLMovie();
+        List<Movie> List = movieDAO.getALLMovie();
         if (List != null) {
             request.setAttribute("ListALLMovie", List);
         }

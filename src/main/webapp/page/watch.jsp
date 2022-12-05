@@ -97,7 +97,7 @@
 
                 <div class="colCenter">
                     <div class="banner">
-                        <div class="image"></div>
+                        <div class="image" style='background-image: url(${movieWatchPage.imagemax});'></div>
                         <div class="cover"></div>
                         <div class="content">
                             <div class="icon">
@@ -131,9 +131,9 @@
                             </div>
                             <div class="name">${movieWatchPage.nameEnglish}</div>
                             <div class="style">
-                                <span>ROMANCE</span>
-                                <span>ANIMATION</span>
-                                <span>DRAMA</span>
+                                <c:forTokens var="t" items="${movieWatchPage.spanList}" delims=",">
+                                <span>${t}</span>
+                                </c:forTokens>
                             </div>
                             <button class="watch_button">
                                 <a class="text-decoration-none text-white" href="movie">
@@ -147,7 +147,7 @@
                                 </a>
                             </button>
                             <div class="min_image">
-                                <img src="./image/watch/watch_min.jpg" alt="">
+                                <img src="${movieWatchPage.imagemin}" alt="">
                             </div>
                         </div>
                     </div>
@@ -209,9 +209,7 @@
                                             STORY
                                         </div>
                                         <div class="content">
-                                            High schoolers Mitsuha and Taki are complete strangers living separate lives. But one night, they suddenly
-                                            switch places. Mitsuha wakes up in Taki’s body, and he in hers. This bizarre occurrence continues to happen
-                                            randomly, and the two must adjust their lives around each other.
+                                            ${movieWatchPage.description}
                                         </div>
                                     </div>
                                     <div class="detail">
@@ -220,7 +218,7 @@
                                         </div>
                                         <div class="content">
                                             <p>Status: Released</p>
-                                            <p>Release date: 2016-08-26</p>
+                                            <p>Release date: ${movieWatchPage.releaseDate}</p>
                                             <p>Spoken language: Japanese</p>
                                         </div>
                                     </div>
@@ -325,13 +323,13 @@
                         <div class="media">
                             <div class="title">MEDIA</div>
                             <div class="trailer">
-                                <iframe width="252" height="142" src="https://www.youtube.com/embed/xU47nhruN-Q" title="YouTube video player"
+                                <iframe width="252" height="142" src="${movieWatchPage.trailerLink}" title="YouTube video player"
                                         frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowfullscreen>
                                 </iframe>
                                 <div class="title_of_video">
-                                    <p>Your Name - Trailer [English Subtitled]</p>
+                                    <p>${movieWatchPage.nameEnglish} - Trailer [English Subtitled]</p>
                                 </div>
                             </div>
                         </div>

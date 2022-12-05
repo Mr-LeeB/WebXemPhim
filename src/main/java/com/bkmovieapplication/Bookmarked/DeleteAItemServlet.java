@@ -1,11 +1,8 @@
 package com.bkmovieapplication.Bookmarked;
 
-import com.bkmovieapplication.entity.User;
-import com.bkmovieapplication.model.BookmarkedDB;
-import com.bkmovieapplication.model.MovieDB;
-import static com.bkmovieapplication.utility.CommonUtility.forwardToPage;
+import com.bkmovieapplication.entity.*;
+import com.bkmovieapplication.model.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,14 +17,15 @@ public class DeleteAItemServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession sesstion = request.getSession();
-        User user = (User) sesstion.getAttribute("user");
-
+        User userr = (User) sesstion.getAttribute("user");
+        if (userr == null) {
+            response.sendRedirect("login");
+            return;
+        }
         String movieId = request.getParameter("movieID");
 
         BookmarkedDB bookmarked = new BookmarkedDB(request, response);
-        bookmarked.deleteMovieInBookmarked(user.getUserId(), movieId);
-
-        forwardToPage("bookmarked", request, response);
+        bookmarked.deleteMovieInBookmarked(userr.getUserId(), movieId);
     }
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

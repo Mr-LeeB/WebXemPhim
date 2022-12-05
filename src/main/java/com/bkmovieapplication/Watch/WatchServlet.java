@@ -16,8 +16,7 @@ public class WatchServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession sesstion = request.getSession();
-        String movie = (String) sesstion.getAttribute("moviechoosed");
+        String movie = (String) request.getParameter("moviechoosed");
 
         MovieDB amovie = new MovieDB(request, response);
         amovie.getAMovie(movie);

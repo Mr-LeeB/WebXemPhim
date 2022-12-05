@@ -36,7 +36,7 @@ public class BookmarkedDAO {
 
     public List<Bookmarked> getALLBookmarked() {
         List<Bookmarked> List = new ArrayList<>();
-        String query = "select * from oj3bOO0Agn.bookmarked";
+        String query = "select * from " + dbquery + ".bookmarked";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
@@ -52,11 +52,13 @@ public class BookmarkedDAO {
         }
         return null;
     }
+
     public List<Movie> getMovieInBookmarked(Integer userid) {
         List<Movie> List = new ArrayList<>();
-        String query = "select movie.movieId, movieName, movieStar, category, description, movieLink, imageLink\n"
-                + "                from oj3bOO0Agn.movie, oj3bOO0Agn.bookmarked\n"
-                + "                where movie.movieId = bookmarked.movieid and userid = ?";
+        String query = "select movie.movieId ,nameEnglish,nameVietnamese,movieStar,\n"
+                + "release_date,description,imagemax,imagemin,span_list,trailerLink,category\n"
+                + "from " + dbquery + ".movie, " + dbquery + ".bookmarked\n"
+                + "where movie.movieId = bookmarked.movieid and userid = ?";
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
@@ -84,7 +86,7 @@ public class BookmarkedDAO {
 
     public static void main(String[] args) {
         try {
-            System.out.println(new BookmarkedDAO().getMovieInBookmarked(3));
+            System.out.println(new BookmarkedDAO().delete(2,"800939"));
         } catch (Exception e) {
         }
     }

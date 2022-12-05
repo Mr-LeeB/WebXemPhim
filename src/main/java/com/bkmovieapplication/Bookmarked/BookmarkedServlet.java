@@ -18,13 +18,17 @@ public class BookmarkedServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession sesstion = request.getSession();
-        User user = (User) sesstion.getAttribute("user");
-        
+        User userr = (User) sesstion.getAttribute("user");
+        if (userr == null) {
+            response.sendRedirect("login");
+            return;
+        }
         BookmarkedDB bookmarked = new BookmarkedDB(request, response);
-        bookmarked.getMovieInBookmarked(user.getUserId());
-        
+        bookmarked.getMovieInBookmarked(userr.getUserId());
+
         forwardToPage("page/bookmarked.jsp", request, response);
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

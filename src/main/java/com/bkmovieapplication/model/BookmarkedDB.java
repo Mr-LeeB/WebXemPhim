@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.util.List;
 
 import static com.bkmovieapplication.utility.CommonUtility.forwardToPage;
-import java.util.ArrayList;
 
 public class BookmarkedDB {
 
@@ -30,18 +29,20 @@ public class BookmarkedDB {
     }
 
     public void getALLMovieInBookmarked() throws ServletException, IOException {
-        List<Bookmarked> List = new ArrayList<>();
-        List = bookmarkedDAO.getALLBookmarked();
+        List<Bookmarked> List = bookmarkedDAO.getALLBookmarked();
         request.setAttribute("ListAllBookmarked", List);
     }
 
     public void deleteMovieInBookmarked(Integer userId, String movieId) throws ServletException, IOException {
-        boolean List = bookmarkedDAO.delete(userId, movieId);
+        boolean del = bookmarkedDAO.delete(userId, movieId);
+        if (del == true) {
+            forwardToPage("page/bookmarked.jsp", "Deleted!", request, response);
+        }
+        forwardToPage("page/bookmarked.jsp", "Delete fail!", request, response);
     }
 
     public void getMovieInBookmarked(Integer userId) throws ServletException, IOException {
-        List<Movie> List = new ArrayList<>();
-        List = bookmarkedDAO.getMovieInBookmarked(userId);
+        List<Movie> List = bookmarkedDAO.getMovieInBookmarked(userId);
         if (List != null) {
             request.setAttribute("ListMovieInBookmarked", List);
         }

@@ -11,7 +11,6 @@ import java.sql.ResultSet;
 import com.bkmovieapplication.context.DBContext;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Date;
 
 public class MovieDAO {
 

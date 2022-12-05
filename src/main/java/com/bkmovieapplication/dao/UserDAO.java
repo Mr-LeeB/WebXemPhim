@@ -74,7 +74,7 @@ public class UserDAO {
     public static void main(String[] args) {
         try {
             UserDAO dao = new UserDAO();
-            dao.create("quang", "quangbao9a2@gmail.com","123","123");
+            dao.create("tranchikien", "tranchikien@gmail.com","kien","123456");
         } catch (Exception e) {
         }
     }

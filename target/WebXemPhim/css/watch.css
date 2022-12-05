@@ -67,7 +67,6 @@
     position: relative;
 }
 .colCenter .banner .image {
-    background-image: url(../image/watch/watch_max.jpg);
     height: 400px;
     background-repeat: no-repeat;
     background-size: cover;
