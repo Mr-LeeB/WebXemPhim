@@ -28,6 +28,7 @@
         <!-- CSS -->
         <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="css/profile.css">
+        <link rel="stylesheet" href="css/login.css">
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
@@ -209,10 +210,10 @@
                                                     <tr>
                                                         <th width="30%">New Pass Word</th>
                                                         <td width="2%">:</td>
-                                                        <td><input type="password" name = "newpassword" class="form-control" id="confirmpassword" required data-validation-required-message="Please confirm your password" autocomplete="off">
+                                                        <td>
+                                                            <input type="password" name = "newpassword" class="form-control" id="confirmpassword" autocomplete="off">
                                                         </td>
                                                     </tr>
-
                                                 </table>
                                                 <div class="mrgn-30-top">
                                                     <button type="submit" class="btn btn-larger"/>
@@ -220,6 +221,7 @@
                                                     </button>
                                                 </div>
                                             </form>
+                                            <c:if test="${message!=null}">${message}</c:if>
                                         </div>
                                     </div>
                                     <div style="height: 26px"></div>

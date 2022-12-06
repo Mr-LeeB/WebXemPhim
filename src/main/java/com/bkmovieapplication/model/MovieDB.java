@@ -25,6 +25,7 @@ public class MovieDB {
         this.response = response;
         movieDAO = new MovieDAO();
     }
+    
     public void getAMovie(String movieid) throws ServletException, IOException {
         Movie movie = movieDAO.getAMovieByID(movieid);
         if(movie != null){

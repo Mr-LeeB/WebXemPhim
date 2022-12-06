@@ -12,6 +12,27 @@ public class UserDAO {
     PreparedStatement ps = null;
     ResultSet rs = null;
 
+    public void update(Integer userid, String username, String email, String password, String phonenum) {
+        String query = "update  oj3bOO0Agn.user \n"
+                + "set\n"
+                + "userName = ?,\n"
+                + "email = ?,\n"
+                + "passWord = ?,\n"
+                + "phoneNum = ?\n"
+                + "where userid = ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, username);
+            ps.setString(2, email);
+            ps.setString(3, password);
+            ps.setString(4, phonenum);
+            ps.setInt(5, userid);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
     public void create(String username, String email, String password, String phonenum) {
         String query = "insert into oj3bOO0Agn.user (	\n"
                 + "	userName,\n"
@@ -74,7 +95,7 @@ public class UserDAO {
     public static void main(String[] args) {
         try {
             UserDAO dao = new UserDAO();
-            System.out.println( dao.checkAccountExist("tranchikien", "tranchikien@gmail.com"));
+            System.out.println(dao.checkAccountExist("tranchikien", "tranchikien@gmail.com"));
         } catch (Exception e) {
         }
     }

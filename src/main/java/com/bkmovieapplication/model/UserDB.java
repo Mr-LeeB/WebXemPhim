@@ -23,6 +23,27 @@ public class UserDB {
         userDAO = new UserDAO();
     }
 
+    public void update() throws ServletException, IOException {
+        User user = (User) request.getSession().getAttribute("user");
+
+        String username = request.getParameter("username");
+        String email = request.getParameter("email");
+        String phonenum = request.getParameter("phonenum");
+        String pass = request.getParameter("password");
+        String newpass = request.getParameter("newpassword");
+        if (!pass.equals(user.getPassWord())) {
+            forwardToPage("profile", "Update failed. Please enter correct password", request, response);
+        }
+        if (newpass != "") {
+            userDAO.update(user.getUserId(), username, email, newpass, phonenum);
+            request.getSession().removeAttribute("user");
+        } else {
+            userDAO.update(user.getUserId(), username, email, pass, phonenum);
+        }
+        User newuser = new User(user.getUserId(), username, email, pass, phonenum);
+        forwardToPage("profile", "Update Success", request, response);
+    }
+
     public void login() throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");

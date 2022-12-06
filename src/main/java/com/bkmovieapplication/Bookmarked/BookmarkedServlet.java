@@ -19,10 +19,7 @@ public class BookmarkedServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession sesstion = request.getSession();
         User userr = (User) sesstion.getAttribute("user");
-        if (userr == null) {
-            response.sendRedirect("login");
-            return;
-        }
+
         BookmarkedDB bookmarked = new BookmarkedDB(request, response);
         bookmarked.getMovieInBookmarked(userr.getUserId());
 

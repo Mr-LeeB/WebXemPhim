@@ -52,9 +52,9 @@
                                             <input type="password" name = "confirmpassword" class="form-control" id="confirmpassword" required data-validation-required-message="Please confirm your password" autocomplete="off">
                                             <p class="help-block text-danger"></p>
                                         </div>
-                                        <c:if test="${message} != null">
+                                        
                                             <p style="color: red">${message}</p>
-                                        </c:if>
+                              
                                         <div class="mrgn-30-top">
                                             <button type="submit" class="btn btn-larger btn-block"/>
                                             Sign up
@@ -75,9 +75,9 @@
                                             <input type="password" name ="password" value="${password}" class="form-control" id="password" required data-validation-required-message="Please enter your password" autocomplete="off">
                                             <p class="help-block text-danger"></p>
                                         </div>
-                                        <c:if test="${message} != null">
+                                        
                                             <p style="color: red">${message}</p>
-                                        </c:if>
+                                  
                                         <div class="mrgn-30-top">
                                             <input type="submit" value = "Log in"class="btn btn-larger btn-block"/>
                                         </div>

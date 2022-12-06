@@ -13,6 +13,7 @@ com\bkmovieapplication\entity\Bookmarked.class
 com\bkmovieapplication\model\BookmarkedDB.class
 com\bkmovieapplication\webxemphim\HomeServlet.class
 com\bkmovieapplication\model\UserDB.class
+com\bkmovieapplication\User\UserUpdateProfileServlet.class
 com\bkmovieapplication\User\UserShowProfile.class
 com\bkmovieapplication\User\UserSignUpServlet.class
 com\bkmovieapplication\Watch\MovieServlet.class

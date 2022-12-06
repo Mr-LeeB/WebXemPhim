@@ -18,14 +18,11 @@ public class DeleteAItemServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession sesstion = request.getSession();
         User userr = (User) sesstion.getAttribute("user");
-        if (userr == null) {
-            response.sendRedirect("login");
-            return;
-        }
         String movieId = request.getParameter("movieID");
 
         BookmarkedDB bookmarked = new BookmarkedDB(request, response);
         bookmarked.deleteMovieInBookmarked(userr.getUserId(), movieId);
+        response.sendRedirect("bookmarked");
     }
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -22,13 +22,3 @@ body {
     font-size: 20px;
     font-weight: 700;
 }
-
-.btn-larger:hover, .btn-larger:focus, .btn-larger:active, .btn-larger {
-    border-color: #F7CA18;
-    color: #fff;
-    background-color: #F7CA18;
-    border-radius: 0
-}
-.btn .btn-larger{
-    background-color: red;
-}

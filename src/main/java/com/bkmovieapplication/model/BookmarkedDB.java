@@ -35,16 +35,16 @@ public class BookmarkedDB {
 
     public void deleteMovieInBookmarked(Integer userId, String movieId) throws ServletException, IOException {
         boolean del = bookmarkedDAO.delete(userId, movieId);
-        if (del == true) {
-            forwardToPage("page/bookmarked.jsp", "Deleted!", request, response);
-        }
-        forwardToPage("page/bookmarked.jsp", "Delete fail!", request, response);
+//        if (del == true) {
+//            forwardToPage("bookmarked", "Delete Success!", request, response);
+//        }
+//        forwardToPage("bookmarked", "Delete fail!", request, response);
     }
 
     public void getMovieInBookmarked(Integer userId) throws ServletException, IOException {
         List<Movie> List = bookmarkedDAO.getMovieInBookmarked(userId);
-        if (List != null) {
-            request.setAttribute("ListMovieInBookmarked", List);
-        }
+
+        request.setAttribute("ListMovieInBookmarked", List);
+
     }
 }

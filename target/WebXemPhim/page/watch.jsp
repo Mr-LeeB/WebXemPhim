@@ -132,11 +132,11 @@
                             <div class="name">${movieWatchPage.nameEnglish}</div>
                             <div class="style">
                                 <c:forTokens var="t" items="${movieWatchPage.spanList}" delims=",">
-                                <span>${t}</span>
+                                    <span>${t}</span>
                                 </c:forTokens>
                             </div>
                             <button class="watch_button">
-                                <a class="text-decoration-none text-white" href="movie">
+                                <a class="text-decoration-none text-white" href="movie?mID=${movieWatchPage.movieId}">
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="25" width="25"
                                          xmlns="http://www.w3.org/2000/svg">
                                     <path
