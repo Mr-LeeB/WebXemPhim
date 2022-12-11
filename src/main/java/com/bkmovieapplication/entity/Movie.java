@@ -6,32 +6,39 @@ package com.bkmovieapplication.entity;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
  *
- * @author Admin
+ * @author tck22
  */
 @Entity
-@Table(name = "Movie")
+@Table(name = "movie")
 @NamedQueries({
     @NamedQuery(name = "Movie.findAll", query = "SELECT m FROM Movie m"),
     @NamedQuery(name = "Movie.findByMovieId", query = "SELECT m FROM Movie m WHERE m.movieId = :movieId"),
-    @NamedQuery(name = "Movie.findByMovieName", query = "SELECT m FROM Movie m WHERE m.movieName = :movieName"),
+    @NamedQuery(name = "Movie.findByNameEnglish", query = "SELECT m FROM Movie m WHERE m.nameEnglish = :nameEnglish"),
+    @NamedQuery(name = "Movie.findByNameVietnamese", query = "SELECT m FROM Movie m WHERE m.nameVietnamese = :nameVietnamese"),
     @NamedQuery(name = "Movie.findByMovieStar", query = "SELECT m FROM Movie m WHERE m.movieStar = :movieStar"),
-    @NamedQuery(name = "Movie.findByCategory", query = "SELECT m FROM Movie m WHERE m.category = :category"),
-    @NamedQuery(name = "Movie.findByDescription", query = "SELECT m FROM Movie m WHERE m.description = :description"),
-    @NamedQuery(name = "Movie.findByMovieLink", query = "SELECT m FROM Movie m WHERE m.movieLink = :movieLink"),
-    @NamedQuery(name = "Movie.findByImageLink", query = "SELECT m FROM Movie m WHERE m.imageLink = :imageLink")})
+    @NamedQuery(name = "Movie.findByReleaseDate", query = "SELECT m FROM Movie m WHERE m.releaseDate = :releaseDate"),
+    @NamedQuery(name = "Movie.findByImagemax", query = "SELECT m FROM Movie m WHERE m.imagemax = :imagemax"),
+    @NamedQuery(name = "Movie.findByImagemin", query = "SELECT m FROM Movie m WHERE m.imagemin = :imagemin"),
+    @NamedQuery(name = "Movie.findBySpanList", query = "SELECT m FROM Movie m WHERE m.spanList = :spanList"),
+    @NamedQuery(name = "Movie.findByCategory", query = "SELECT m FROM Movie m WHERE m.category = :category")})
 public class Movie implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -41,42 +48,80 @@ public class Movie implements Serializable {
     @Size(min = 1, max = 10)
     @Column(name = "movieId")
     private String movieId;
-    @Size(max = 50)
-    @Column(name = "movieName")
-    private String movieName;
-    @Size(max = 10)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "nameEnglish")
+    private String nameEnglish;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "nameVietnamese")
+    private String nameVietnamese;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 10)
     @Column(name = "movieStar")
     private String movieStar;
-    @Size(max = 10)
-    @Column(name = "category")
-    private String category;
-    @Size(max = 1000)
+    @Column(name = "release_date")
+    @Temporal(TemporalType.DATE)
+    private Date releaseDate;
+    @Basic(optional = false)
+    @NotNull
+    @Lob
+    @Size(min = 1, max = 2147483647)
     @Column(name = "description")
     private String description;
-    @Size(max = 100)
-    @Column(name = "movieLink")
-    private String movieLink;
-    @Size(max = 100)
-    @Column(name = "imageLink")
-    private String imageLink;
-    @OneToMany(mappedBy = "movieid")
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
+    @Column(name = "imagemax")
+    private String imagemax;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
+    @Column(name = "imagemin")
+    private String imagemin;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
+    @Column(name = "span_list")
+    private String spanList;
+    @Basic(optional = false)
+    @NotNull
+    @Lob
+    @Size(min = 1, max = 2147483647)
+    @Column(name = "trailerLink")
+    private String trailerLink;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 10)
+    @Column(name = "category")
+    private String category;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "movieid")
     private Collection<Bookmarked> bookmarkedCollection;
     @OneToMany(mappedBy = "movieID")
     private Collection<Comment> commentCollection;
 
     public Movie() {
     }
-    public Movie(String movieId, String movieName, String movieStar, String category, String description, String movieLink, String imageLink){
-        this.movieId = movieId;
-        this.movieName = movieName;
-        this.movieStar = movieStar;
-        this.category = category;
-        this.description = description;
-        this.movieLink = movieLink;
-        this.imageLink = imageLink;
-    }
+
     public Movie(String movieId) {
         this.movieId = movieId;
+    }
+
+    public Movie(String movieId, String nameEnglish, String nameVietnamese, String movieStar,Date releaseDate, String description, String imagemax, String imagemin, String spanList, String trailerLink, String category) {
+        this.movieId = movieId;
+        this.nameEnglish = nameEnglish;
+        this.nameVietnamese = nameVietnamese;
+        this.movieStar = movieStar;
+        this.releaseDate = releaseDate;
+        this.description = description;
+        this.imagemax = imagemax;
+        this.imagemin = imagemin;
+        this.spanList = spanList;
+        this.trailerLink = trailerLink;
+        this.category = category;
     }
 
     public String getMovieId() {
@@ -87,12 +132,20 @@ public class Movie implements Serializable {
         this.movieId = movieId;
     }
 
-    public String getMovieName() {
-        return movieName;
+    public String getNameEnglish() {
+        return nameEnglish;
     }
 
-    public void setMovieName(String movieName) {
-        this.movieName = movieName;
+    public void setNameEnglish(String nameEnglish) {
+        this.nameEnglish = nameEnglish;
+    }
+
+    public String getNameVietnamese() {
+        return nameVietnamese;
+    }
+
+    public void setNameVietnamese(String nameVietnamese) {
+        this.nameVietnamese = nameVietnamese;
     }
 
     public String getMovieStar() {
@@ -103,12 +156,12 @@ public class Movie implements Serializable {
         this.movieStar = movieStar;
     }
 
-    public String getCategory() {
-        return category;
+    public Date getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public String getDescription() {
@@ -119,20 +172,44 @@ public class Movie implements Serializable {
         this.description = description;
     }
 
-    public String getMovieLink() {
-        return movieLink;
+    public String getImagemax() {
+        return imagemax;
     }
 
-    public void setMovieLink(String movieLink) {
-        this.movieLink = movieLink;
+    public void setImagemax(String imagemax) {
+        this.imagemax = imagemax;
     }
 
-    public String getImageLink() {
-        return imageLink;
+    public String getImagemin() {
+        return imagemin;
     }
 
-    public void setImageLink(String imageLink) {
-        this.imageLink = imageLink;
+    public void setImagemin(String imagemin) {
+        this.imagemin = imagemin;
+    }
+
+    public String getSpanList() {
+        return spanList;
+    }
+
+    public void setSpanList(String spanList) {
+        this.spanList = spanList;
+    }
+
+    public String getTrailerLink() {
+        return trailerLink;
+    }
+
+    public void setTrailerLink(String trailerLink) {
+        this.trailerLink = trailerLink;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public Collection<Bookmarked> getBookmarkedCollection() {

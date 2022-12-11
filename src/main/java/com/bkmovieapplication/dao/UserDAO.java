@@ -11,9 +11,10 @@ public class UserDAO {
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
+    String dbquery = "moviedb";//oj3bOO0Agn
 
     public void create(String username, String email, String password, String phonenum) {
-        String query = "insert into oj3bOO0Agn.user (	\n"
+        String query = "insert into " + dbquery + ".user (	\n"
                 + "	userName,\n"
                 + "    email,\n"
                 + "    passWord,\n"
@@ -32,7 +33,7 @@ public class UserDAO {
     }
 
     public User checkEmailAndPassword(String email, String password) {
-        String query = "SELECT * FROM oj3bOO0Agn.user\n"
+        String query = "SELECT * FROM " + dbquery + ".user\n"
                 + "where email = ? and passWord = ?";
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
@@ -53,7 +54,7 @@ public class UserDAO {
     }
 
     public boolean checkAccountExist(String username, String email) {
-        String query = "select * from oj3bOO0Agn.user\n"
+        String query = "select * from " + dbquery + ".user\n"
                 + "where userName = ? and email = ?";
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql

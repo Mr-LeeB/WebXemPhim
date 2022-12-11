@@ -19,10 +19,10 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author Admin
+ * @author tck22
  */
 @Entity
-@Table(name = "Comment")
+@Table(name = "comment")
 @NamedQueries({
     @NamedQuery(name = "Comment.findAll", query = "SELECT c FROM Comment c"),
     @NamedQuery(name = "Comment.findByCmtID", query = "SELECT c FROM Comment c WHERE c.cmtID = :cmtID"),

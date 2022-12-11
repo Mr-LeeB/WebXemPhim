@@ -109,7 +109,15 @@ body {
     display: inline-block;
     margin-left: 1.3rem;
 }
-
+.colLeft_personal_item .active {
+    color: #335fee !important;
+}
+.colLeft_personal_item .active svg {
+    color: #335fee !important;
+}
+.colLeft_personal_item .active span {
+    font-weight: 500;
+}
 /* GENERAL */
 
 .colLeft_general_item {

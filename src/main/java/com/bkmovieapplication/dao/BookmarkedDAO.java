@@ -17,18 +17,20 @@ public class BookmarkedDAO {
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
+    
+    String dbquery = "moviedb";//oj3bOO0Agn
 
     public List<Bookmarked> getALLBookmarked() {
         List<Bookmarked> List = new ArrayList<>();
-        String query = "select * from oj3bOO0Agn.bookmarked";
+        String query = "select * from" + dbquery + ".bookmarked";
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
                 List.add(new Bookmarked(rs.getInt(1),
-                        rs.getString(2),
-                        rs.getInt(3)
+                        rs.getInt(2),
+                        rs.getString(3)
                 ));
             }
             return List;

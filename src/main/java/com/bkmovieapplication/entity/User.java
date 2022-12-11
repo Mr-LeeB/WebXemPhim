@@ -7,22 +7,24 @@ package com.bkmovieapplication.entity;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
  *
- * @author Admin
+ * @author tck22
  */
 @Entity
-@Table(name = "User")
+@Table(name = "user")
 @NamedQueries({
     @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
     @NamedQuery(name = "User.findByUserId", query = "SELECT u FROM User u WHERE u.userId = :userId"),
@@ -34,8 +36,8 @@ public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "userId")
     private Integer userId;
     @Size(max = 10)
@@ -51,24 +53,27 @@ public class User implements Serializable {
     @Size(max = 10)
     @Column(name = "phoneNum")
     private String phoneNum;
-    @OneToMany(mappedBy = "userid")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userid")
     private Collection<Bookmarked> bookmarkedCollection;
     @OneToMany(mappedBy = "userID")
     private Collection<Comment> commentCollection;
 
     public User() {
     }
-    public User(String userName, String email){
+
+    public User(String userName, String email) {
         this.userName = userName;
         this.email = email;
     }
-    public User(Integer userId, String userName, String email, String passWord, String phoneNum){
+
+    public User(Integer userId, String userName, String email, String passWord, String phoneNum) {
         this.userId = userId;
         this.userName = userName;
         this.email = email;
         this.passWord = passWord;
         this.phoneNum = phoneNum;
     }
+
     public User(Integer userId) {
         this.userId = userId;
     }
@@ -153,5 +158,5 @@ public class User implements Serializable {
     public String toString() {
         return "com.bkmovieapplication.entity.User[ userId=" + userId + " ]";
     }
-    
+
 }

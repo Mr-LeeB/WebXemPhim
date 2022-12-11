@@ -65,7 +65,7 @@
                                 </svg>
                                 <span>Bookmarked</span>
                             </a>
-                            <a class="item active">
+                            <a class="item">
                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="25"
                                      width="25" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -78,7 +78,8 @@
                         <div class="colLeft_Menu">GENERAL</div>
                         <div class="colLeft_general_item">
                             <a class="item active" <c:if test="${sessionScope.user != null}">href="profile"</c:if>
-                               <c:if test="${sessionScope.user == null}">href="login"</c:if>>
+                               <c:if test="${sessionScope.user == null}">href="admin"</c:if>
+                               >
                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="25" width="25"
                                         xmlns="http://www.w3.org/2000/svg">
                                    <path
@@ -91,7 +92,7 @@
                                    <span>Profile</span>
                                </a>
                             <c:if test="${sessionScope.user == null}">
-                                <a class="item active" href="login">
+                                <a class="item" href="login">
                                     <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="30" width="30"
                                          xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -173,7 +174,7 @@
                                 <div class="item item__tag">
                                     <a href="#">
                                         <div class="item__content">
-                                            <img class="img-fluid" src="${p.imageLink}" alt="#">
+                                            <img class="img-fluid" src="${p.imagemin}" alt="#">
                                             <span class="vote">
                                                 <span class="star">${p.movieStar}</span>
                                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="15"
@@ -183,7 +184,7 @@
                                                 </path>
                                                 </svg>
                                             </span>
-                                            <div class="name">${p.movieName}</div>
+                                            <div class="name">${p.nameEnglish}</div>
                                         </div>
                                     </a>
                                 </div>
@@ -197,7 +198,7 @@
                                 <div class="item item__tag">
                                     <a href="#">
                                         <div class="item__content">
-                                            <img class="img-fluid" src="${t.imageLink}" alt="#">
+                                            <img class="img-fluid" src="${t.imagemin}" alt="#">
                                             <span class="vote">
                                                 <span class="star">${t.movieStar}</span>
                                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="15"
@@ -207,7 +208,7 @@
                                                 </path>
                                                 </svg>
                                             </span>
-                                            <div class="name">${t.movieName}</div>
+                                            <div class="name">${t.nameEnglish}</div>
                                         </div>
                                     </a>
                                 </div>
@@ -221,7 +222,7 @@
                                 <div class="item item__tag">
                                     <a href="#">
                                         <div class="item__content">
-                                            <img class="img-fluid" src="${h.imageLink}" alt="#">
+                                            <img class="img-fluid" src="${h.imagemin}" alt="#">
                                             <span class="vote">
                                                 <span class="star">${h.movieStar}</span>
                                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="15"
@@ -231,7 +232,7 @@
                                                 </path>
                                                 </svg>
                                             </span>
-                                            <div class="name">${h.movieName}</div>
+                                            <div class="name">${h.nameEnglish}</div>
                                         </div>
                                     </a>
                                 </div>
@@ -245,7 +246,7 @@
                                 <div class="item item__tag">
                                     <a href="#">
                                         <div class="item__content">
-                                            <img class="img-fluid" src="${hp.imageLink}" alt="#">
+                                            <img class="img-fluid" src="${hp.imagemin}" alt="#">
                                             <span class="vote">
                                                 <span class="star">${hp.movieStar}</span>
                                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="15"
@@ -255,7 +256,7 @@
                                                 </path>
                                                 </svg>
                                             </span>
-                                            <div class="name">${hp.movieName}</div>
+                                            <div class="name">${hp.nameEnglish}</div>
                                         </div>
                                     </a>
                                 </div>
