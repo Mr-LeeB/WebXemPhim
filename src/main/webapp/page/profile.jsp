@@ -215,12 +215,25 @@
                                                         </td>
                                                     </tr>
                                                 </table>
-                                                <div class="mrgn-30-top">
-                                                    <button type="submit" class="btn btn-larger"/>
-                                                    Update
-                                                    </button>
-                                                </div>
+                                                <c:if test="${sessionScope.user != null}">
+                                                    <div class="mrgn-30-top">
+                                                        <button type="submit" class="btn btn-larger"/>
+                                                        Update
+                                                        </button>
+                                                    </div>
+                                                </c:if>
+
                                             </form>
+
+                                            <c:if test="${sessionScope.user == null}">
+                                                <form action="login" method="post">
+                                                    <div class="mrgn-30-top">
+                                                        <button type="submit" class="btn btn-larger"/>
+                                                        Login
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </c:if>
                                             <c:if test="${message!=null}">${message}</c:if>
                                         </div>
                                     </div>

@@ -178,7 +178,9 @@
                                 <a href="dodelete?movieID=${p.movieId}">
                                     <button type="button">Delete</button>
                                 </a>
-                                <button>Watch</button>
+                                <a href="watch?moviechoosed=${p.movieId}">
+                                    <button>Watch</button>
+                                </a>
                             </li>
                         </c:forEach>
                     </ul>

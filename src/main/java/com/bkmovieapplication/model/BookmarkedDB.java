@@ -27,7 +27,13 @@ public class BookmarkedDB {
         this.response = response;
         bookmarkedDAO = new BookmarkedDAO();
     }
-
+    public void addOrDelMovieToBookmarked(Integer userId, String movieId) throws ServletException, IOException {
+        boolean check = bookmarkedDAO.checkExit(userId,movieId);
+        if(check)
+            bookmarkedDAO.delete(userId, movieId);
+        else
+            bookmarkedDAO.add(userId,movieId);
+    }
     public void getALLMovieInBookmarked() throws ServletException, IOException {
         List<Bookmarked> List = bookmarkedDAO.getALLBookmarked();
         request.setAttribute("ListAllBookmarked", List);

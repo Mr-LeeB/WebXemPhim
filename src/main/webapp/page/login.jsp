@@ -72,7 +72,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label> Password<span class="req">*</span> </label>
-                                            <input type="password" name ="password" value="${password}" class="form-control" id="password" required data-validation-required-message="Please enter your password" autocomplete="off">
+                                            <input type="password" name ="password" class="form-control" id="password" required data-validation-required-message="Please enter your password" autocomplete="off">
                                             <p class="help-block text-danger"></p>
                                         </div>
                                         

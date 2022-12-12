@@ -36,31 +36,47 @@ public class Comment implements Serializable {
     @NotNull
     @Size(min = 1, max = 10)
     @Column(name = "cmtID")
-    private String cmtID;
+    private Integer cmtID;
     @Size(max = 1000)
     @Column(name = "comment")
     private String comment;
-    @Column(name = "star")
-    private Integer star;
     @JoinColumn(name = "movieID", referencedColumnName = "movieId")
     @ManyToOne
-    private Movie movieID;
+    private String movieID;
     @JoinColumn(name = "userID", referencedColumnName = "userId")
     @ManyToOne
     private Integer userID;
+    
+    private String userName;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     public Comment() {
     }
 
-    public Comment(String cmtID) {
+    public Comment(Integer cmtID) {
         this.cmtID = cmtID;
     }
+    
+    public Comment(Integer cmtID,String movieID, Integer userID,  String comment, String userName){
+        this.cmtID = cmtID;
+        this.comment = comment;
+        this.movieID = movieID;
+        this.userID = userID;
+        this.userName = userName;
+    }
 
-    public String getCmtID() {
+    public Integer getCmtID() {
         return cmtID;
     }
 
-    public void setCmtID(String cmtID) {
+    public void setCmtID(Integer cmtID) {
         this.cmtID = cmtID;
     }
 
@@ -72,19 +88,11 @@ public class Comment implements Serializable {
         this.comment = comment;
     }
 
-    public Integer getStar() {
-        return star;
-    }
-
-    public void setStar(Integer star) {
-        this.star = star;
-    }
-
-    public Movie getMovieID() {
+    public String getMovieID() {
         return movieID;
     }
 
-    public void setMovieID(Movie movieID) {
+    public void setMovieID(String movieID) {
         this.movieID = movieID;
     }
 

@@ -19,6 +19,21 @@ public class BookmarkedDAO {
     ResultSet rs = null;
     String dbquery = "oj3bOO0Agn";
 
+    public boolean add(Integer userId, String movieId) {
+        String query = "insert " + dbquery + ".bookmarked (userid, movieid)"
+                + "values (?,?)";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, userId);
+            ps.setString(2, movieId);
+            ps.executeUpdate();
+            return true;
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
     public boolean delete(Integer userId, String movieId) {
         String query = "delete from " + dbquery + ".bookmarked \n"
                 + "where userid = ? and movieid = ?";
@@ -29,6 +44,28 @@ public class BookmarkedDAO {
             ps.setString(2, movieId);
             ps.executeUpdate();
             return true;
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
+    public boolean checkExit(Integer userId, String movieId) {
+        List<Bookmarked> List = new ArrayList<>();
+        String query = "select * from " + dbquery + ".bookmarked \n"
+                + "where userid = ? and movieid = ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, userId);
+            ps.setString(2, movieId);
+            ps.executeQuery();
+            while (rs.next()) {
+                return List.add(new Bookmarked(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3)
+                ));
+            }
+            return List == null;
         } catch (Exception e) {
         }
         return false;
@@ -86,7 +123,7 @@ public class BookmarkedDAO {
 
     public static void main(String[] args) {
         try {
-            System.out.println(new BookmarkedDAO().delete(2,"800939"));
+            System.out.println(new BookmarkedDAO().delete(2, "800939"));
         } catch (Exception e) {
         }
     }

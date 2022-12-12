@@ -39,8 +39,10 @@ public class UserDB {
             request.getSession().removeAttribute("user");
         } else {
             userDAO.update(user.getUserId(), username, email, pass, phonenum);
+            User newuser = new User(user.getUserId(), username, email, pass, phonenum);
+            request.getSession().setAttribute("user",newuser);
         }
-        User newuser = new User(user.getUserId(), username, email, pass, phonenum);
+        
         forwardToPage("profile", "Update Success", request, response);
     }
 
@@ -87,7 +89,7 @@ public class UserDB {
                 request.setAttribute("email", email);
                 forwardToPage("/page/login.jsp", "Sign Up Success!", request, response);
             } else {
-                forwardToPage("/page/login.jsp", "Email already exists!", request, response);
+                forwardToPage("/page/login.jsp", "Email or User Name already exists!", request, response);
             }
         }
     }

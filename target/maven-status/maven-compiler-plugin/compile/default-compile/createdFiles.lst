@@ -1,5 +1,8 @@
+com\bkmovieapplication\Comment\AddCommnet.class
+com\bkmovieapplication\Search\SearchServlet.class
 com\bkmovieapplication\entity\User_.class
 com\bkmovieapplication\model\MovieDB.class
+com\bkmovieapplication\Search\SearchByAjax.class
 com\bkmovieapplication\Bookmarked\DeleteAItemServlet.class
 com\bkmovieapplication\dao\UserDAO.class
 com\bkmovieapplication\entity\Comment.class
@@ -10,6 +13,7 @@ com\bkmovieapplication\User\UserLoginServlet.class
 com\bkmovieapplication\context\DBContext.class
 com\bkmovieapplication\entity\Movie_.class
 com\bkmovieapplication\entity\Bookmarked.class
+com\bkmovieapplication\dao\CommentDAO.class
 com\bkmovieapplication\model\BookmarkedDB.class
 com\bkmovieapplication\webxemphim\HomeServlet.class
 com\bkmovieapplication\model\UserDB.class
@@ -22,5 +26,7 @@ com\bkmovieapplication\Watch\WatchServlet.class
 com\bkmovieapplication\entity\User.class
 com\bkmovieapplication\dao\MovieDAO.class
 com\bkmovieapplication\entity\Bookmarked_.class
+com\bkmovieapplication\Bookmarked\AddToBookmarkedServlet.class
 com\bkmovieapplication\entity\Comment_.class
+com\bkmovieapplication\model\CommentDB.class
 com\bkmovieapplication\utility\CommonUtility.class

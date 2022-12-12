@@ -19,11 +19,39 @@ public class MovieDAO {
     ResultSet rs = null;
     String dbquery = "oj3bOO0Agn";
 
+    public List<Movie> searchByName(String txt) {
+        List<Movie> list = new ArrayList<>();
+        String query = "select * from " + dbquery + ".movie\n"
+                + "where nameEnglish like ?";
+        try {
+            conn = new DBContext().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1, "%" + txt + "%");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Movie(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDate(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11)
+                ));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
     public Movie getAMovieByID(String movieId) {
         String query = "select * from " + dbquery + ".movie\n"
                 + "where movieId = ?";
         try {
-            conn = new DBContext().getConnection();//mo ket noi voi sql
+            conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1, movieId);
             rs = ps.executeQuery();

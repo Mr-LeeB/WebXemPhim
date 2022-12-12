@@ -33,9 +33,9 @@ const getMovieDetail = async (id) => {
 const renderCarouselItem = (item, data_detail, count) => {
     // console.log(count[0]);
     let tag = '<div class="carousel-item">';
-    if(count[0]===0){
+    if (count[0] === 0) {
         tag = `<div class="carousel-item active">`
-        count[0]+=1;
+        count[0] += 1;
     }
 
     let image = `https://image.tmdb.org/t/p/original/${data_detail.backdrop_path}`;
@@ -60,14 +60,18 @@ const renderCarouselItem = (item, data_detail, count) => {
     }
 
     let span_list = '';
-    for(let i=0; i<data_detail.genres.length; i++){
-        if(i===4)
+    for (let i = 0; i < data_detail.genres.length; i++) {
+        if (i === 4)
             break;
         span_list += `<span class='me-2'>${data_detail.genres[i].name}</span>`;
     }
 
-    return (`${tag}
+    let movieid = data_detail.id;
+
+    return (`<a href="watch?moviechoosed=${movieid}">
+    ${tag}
         <div class="colCenter_carousel_child_cover"></div>
+        
         <div class="colCenter_carousel_content">
             <span class="star">
                 <span>${vote_average} <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
@@ -94,7 +98,7 @@ const renderCarouselItem = (item, data_detail, count) => {
             </div>
         </div>
         <img src="${image}" class="d-block w-100" alt="...">
-    </div>`
+    </div></a>`
     )
 }
 
@@ -105,7 +109,7 @@ getData().then((data) => {
     data.forEach((item) => {
         getMovieDetail(item.id).then((data_detail) => {
             let carousel_item = renderCarouselItem(item, data_detail, count);
-            document.getElementById('carousel-inner').innerHTML+=carousel_item;
+            document.getElementById('carousel-inner').innerHTML += carousel_item;
         })
     })
 })

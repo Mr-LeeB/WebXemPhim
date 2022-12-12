@@ -1,18 +1,17 @@
 package com.bkmovieapplication.entity;
 
-import com.bkmovieapplication.entity.Movie;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.7.10.v20211216-rNA", date="2022-12-06T12:15:39")
+@Generated(value="EclipseLink-2.7.10.v20211216-rNA", date="2022-12-13T00:09:23")
 @StaticMetamodel(Comment.class)
 public class Comment_ { 
 
-    public static volatile SingularAttribute<Comment, String> cmtID;
-    public static volatile SingularAttribute<Comment, Integer> star;
+    public static volatile SingularAttribute<Comment, Integer> cmtID;
     public static volatile SingularAttribute<Comment, String> comment;
-    public static volatile SingularAttribute<Comment, Movie> movieID;
+    public static volatile SingularAttribute<Comment, String> movieID;
+    public static volatile SingularAttribute<Comment, String> userName;
     public static volatile SingularAttribute<Comment, Integer> userID;
 
 }
