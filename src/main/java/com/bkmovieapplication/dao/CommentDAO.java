@@ -17,7 +17,7 @@ public class CommentDAO {
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
-    String dbquery = "oj3bOO0Agn";
+    String dbquery = "quanlyphimdb";//oj3bOO0Agn";
 
     public List<Comment> getComment(String movieId) {
         List<Comment> list = new ArrayList<>();

@@ -17,7 +17,7 @@ public class BookmarkedDAO {
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
-    String dbquery = "oj3bOO0Agn";
+    String dbquery = "quanlyphimdb";//oj3bOO0Agn";
 
     public boolean add(Integer userId, String movieId) {
         String query = "insert " + dbquery + ".bookmarked (userid, movieid)"
