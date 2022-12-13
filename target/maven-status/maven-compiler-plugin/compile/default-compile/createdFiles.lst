@@ -2,6 +2,7 @@ com\bkmovieapplication\Comment\AddCommnet.class
 com\bkmovieapplication\Admin\AdminUpdateMovieInfomation.class
 com\bkmovieapplication\Search\SearchServlet.class
 com\bkmovieapplication\Bookmarked\DeleteAItemServlet.class
+com\bkmovieapplication\Search\LoadAllMovie.class
 com\bkmovieapplication\Bookmarked\BookmarkedServlet.class
 com\bkmovieapplication\Email\SendMail$1.class
 com\bkmovieapplication\Admin\AdminDeleteMovieInfomation.class

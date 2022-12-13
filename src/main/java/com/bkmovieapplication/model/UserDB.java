@@ -138,6 +138,9 @@ public class UserDB {
         String phonenum = request.getParameter("phonenum");
         String password = request.getParameter("password");
         String confirmpassword = request.getParameter("confirmpassword");
+        if(!checkCode()){
+            forwardToPage("/page/login.jsp", "Verification does not match!", request, response);
+        }
         if (!password.equals(confirmpassword)) {
             forwardToPage("page/login.jsp", "Password does not match!", request, response);
         } else {
@@ -151,9 +154,8 @@ public class UserDB {
             }
         }
     }
-
     public boolean checkCode() {
-        String usercode = request.getParameter("usercode");
+        String usercode = request.getParameter("Verification");
         HttpSession session = request.getSession();
         String code = (String) session.getAttribute("code");
         if (!code.equals(usercode)) {

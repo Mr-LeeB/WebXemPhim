@@ -49,7 +49,15 @@
                 <!-- Navbar Header -->
                 <nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark">
 
-                    <div class="container-fluid">
+                    <div class="container-fluid" style="position: relative;">
+                        <div class="selectDropdown">
+                            <select id="select_Search" name="category">
+                                <option value="Username">Username</option>
+                                <option value="Email">Email</option>
+                                <option value="Password">Password</option>
+                                <option value="Phone Number">Phone Number</option>
+                            </select>
+                        </div>
                         <div class="collapse" id="search-nav">
                             <form class="navbar-left navbar-form nav-search mr-md-3">
                                 <div class="input-group">
@@ -58,7 +66,7 @@
                                             <i class="fa fa-search search-icon"></i>
                                         </button>
                                     </div>
-                                    <input type="text" placeholder="Search ..." class="form-control">
+                                    <input id="input_Search" type="text" placeholder="Search ..." class="form-control" oninput="Search()">
                                 </div>
                             </form>
                         </div>
@@ -339,20 +347,6 @@
                                     <p>Dashboard</p>
                                     <span class="caret"></span>
                                 </a>
-                                <div class="collapse" id="dashboard">
-                                    <ul class="nav nav-collapse">
-                                        <li>
-                                            <a href="../demo1/index.html">
-                                                <span class="sub-item">Dashboard 1</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="../demo2/index.html">
-                                                <span class="sub-item">Dashboard 2</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
                             </li>
                             <li class="nav-section">
                                 <span class="sidebar-mini-icon">
@@ -461,7 +455,7 @@
                                 <!-- <div class="card-sub">									
                                     This is the basic table view of the ready dashboard :
                                 </div> -->
-                                <table class="table mt-0">
+                                <table id="main_Table" class="table mt-0">
                                     <thead>
                                         <tr>
                                             <th style="font-size: 17px;" scope="col">#</th>

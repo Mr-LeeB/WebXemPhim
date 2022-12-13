@@ -68,7 +68,7 @@
                                 </svg>
                                 <span>Explorer</span>
                             </a>
-                            <a class="item">
+                            <a class="item active">
                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
                                      height="25" width="25" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -80,7 +80,7 @@
                         </div>
                         <div class="colLeft_Menu">PERSONAL</div>
                         <div class="colLeft_personal_item">
-                            <a class="item active" href="bookmarked">
+                            <a class="item" href="bookmarked">
                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16"
                                      height="25" width="25" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -162,11 +162,11 @@
                         </div>
                     </div>
                     <h1 style="--tw-text-opacity: 1;color: rgb(255 255 255/var(--tw-text-opacity));">
-                        My Favorite Movie
+                        All Movie
                     </h1>
                     <!-- List item -->
                     <ul class="tilesWrap">
-                        <c:forEach var="p" items="${ListMovieInBookmarked}">
+                        <c:forEach var="p" items="${ListALLMovie}">
                             <li>
                                 <h2>
                                     <img class="img-fluid" src="${p.imagemin}" alt="#">
@@ -197,7 +197,7 @@
                                 </path>
                                 </svg>
                             </button>
-                            <input class="input_search" style="background-color: #333335;" type="text"
+                            <input oninput="SearchAjax(this)" class="input_search" style="background-color: #333335;" type="text"
                                    placeholder="Search..." value="">
                         </form>
                     </div>
@@ -311,6 +311,28 @@
         </script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="js/index.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+            integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            function SearchAjax(text) {
+                $.ajax({
+                    url: "/WebXemPhim/searchAjax",
+                    type: "get", //send it through get method
+                    data: {
+                        txt: text.value
+                    },
+                    success: function (data) {
+                        var row = document.getElementsByClassName("tilesWrap")[0];
+                        row.innerHTML = data;
+                    },
+                    error: function (xhr) {
+                        alert("error");
+                    }
+                });
+            }
+        </script>
     </body>
 
 </html>

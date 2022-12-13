@@ -308,7 +308,7 @@ body {
     top: 20px;
 }
 .carousel-control-prev {
-    z-index: 8;
+    z-index: 14;
     width: 20px;
     height: 20px;
     position: absolute;

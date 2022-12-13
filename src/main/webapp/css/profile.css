@@ -1,16 +1,21 @@
 body {
-    background: #67B26F;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #4ca2cd, #67B26F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #67B26F;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4ca2cd, #67B26F);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 0;
     margin: 0;
     font-family: 'Lato', sans-serif;
     color: #000;
 }
+
 .student-profile .card {
     border-radius: 10px;
 }
-.student-profile .card .card-header .profile_img img{
+
+.student-profile .card .card-header .profile_img img {
     width: 150px;
     height: 150px;
     object-fit: cover;
@@ -18,7 +23,38 @@ body {
     border: 10px solid #ccc;
     border-radius: 50%;
 }
+
 .student-profile .card h3 {
     font-size: 20px;
     font-weight: 700;
+}
+
+#image_user {
+    width: 369px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#updateButton {
+    background-color: #F7CA18;
+    color: #FFF;
+    border: 0;
+    border-radius: 0;
+    padding: 10px 20px;
+    font-size: 18px;
+    -webkit-transition: all .6s;
+    -moz-transition: all .6s;
+    transition: all .6s;
+    font-size: 15px;
+    margin-top: 15px;
+    color: #1c1e21;
+}
+
+
+#OtherInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

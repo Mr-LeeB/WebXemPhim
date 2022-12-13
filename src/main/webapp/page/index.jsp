@@ -67,7 +67,7 @@
                                 </svg>
                                 <span>Explorer</span>
                             </a>
-                            <a class="item">
+                            <a class="item" href="LoadAllMovie">
                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
                                      height="25" width="25" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -116,7 +116,10 @@
                                        d="M12 6a3.91 3.91 0 0 0-4 4 3.91 3.91 0 0 0 4 4 3.91 3.91 0 0 0 4-4 3.91 3.91 0 0 0-4-4zm0 6a1.91 1.91 0 0 1-2-2 1.91 1.91 0 0 1 2-2 1.91 1.91 0 0 1 2 2 1.91 1.91 0 0 1-2 2z">
                                    </path>
                                    </svg>
-                                   <span>Profile</span>
+                                   <span>
+                                   <c:if test="${sessionScope.admin == true}">Admin Manager</c:if>
+                                   <c:if test="${sessionScope.admin == false || sessionScope.admin == null }">Profile</c:if>
+                                   </span>
                                </a>
                             <c:if test="${sessionScope.user == null}">
                                 <a class="item active" href="login">
@@ -163,9 +166,8 @@
                         </div>
                     </div>
                     <div class="colCenter_carousel">
-                        <a class="exec_click" href="" >
                             <div class="colCenter_carousel_child">
-                                <div class="colCenter_carousel_child_cover_total">
+                                <div class="colCenter_carousel_child_cover_total" onclick="MoveToWatch()">
                                     <div class="support_cover">
                                         <svg stroke="currentColor" fill="currentColor" stroke-width="0"
                                              viewBox="0 0 16 16" class="text-white" height="35" width="35"
@@ -192,7 +194,6 @@
                                     </button>
                                 </div>
                             </div>
-                        </a>
                     </div>
 
                     <c:if test="${CheckSearch == false || CheckSearch == null}">

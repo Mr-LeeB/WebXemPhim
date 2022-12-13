@@ -49,27 +49,6 @@ public class BookmarkedDAO {
         return false;
     }
 
-    public boolean checkExit(Integer userId, String movieId) {
-        List<Bookmarked> List = new ArrayList<>();
-        String query = "select * from " + dbquery + ".bookmarked \n"
-                + "where userid = ? and movieid = ?";
-        try {
-            conn = new DBContext().getConnection();
-            ps = conn.prepareStatement(query);
-            ps.setInt(1, userId);
-            ps.setString(2, movieId);
-            ps.executeQuery();
-            while (rs.next()) {
-                return List.add(new Bookmarked(rs.getInt(1),
-                        rs.getInt(2),
-                        rs.getString(3)
-                ));
-            }
-            return List == null;
-        } catch (Exception e) {
-        }
-        return false;
-    }
 
     public List<Bookmarked> getALLBookmarked() {
         List<Bookmarked> List = new ArrayList<>();
@@ -120,10 +99,23 @@ public class BookmarkedDAO {
         }
         return null;
     }
-
+    public boolean checkExit(Integer userId, String movieId) {
+        String query = "select * from " + dbquery + ".bookmarked \n"
+                + "where userid = ? and movieid = ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, userId);
+            ps.setString(2, movieId);
+            rs = ps.executeQuery();
+            return rs.next() == true;
+        } catch (Exception e) {
+        }
+        return false;
+    }
     public static void main(String[] args) {
         try {
-            System.out.println(new BookmarkedDAO().delete(2, "800939"));
+            System.out.println(new BookmarkedDAO().checkExit(1, "821881"));
         } catch (Exception e) {
         }
     }

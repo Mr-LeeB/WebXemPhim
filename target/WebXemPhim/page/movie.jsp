@@ -161,7 +161,7 @@
                                 <c:forEach items="${commentList}" var="o">
                                     <div class="dialogbox">
                                         <div class="body">
-                                            <span>${o.userName}</span>
+                                            <span class="userName">${o.userName}</span>
                                             <span class="tip tip-left"></span>
                                             <div class="message">
                                                 <span>${o.comment}</span>
@@ -170,9 +170,9 @@
                                     </div>
                                 </c:forEach>
                             </div>
-                            <textarea class="comment" placeholder="Type your comment here."></textarea>
+                            <textarea id="comment_Input" class="comment" placeholder="Type your comment here."></textarea>
                             <br>
-                            <input onclick="addComment(${movieWatchPage.movieId})" type="button" value="Comment">
+                            <input id="addComment" onclick="addComment(${movieWatchPage.movieId})" type="button" value="Comment">
                         </c:if>
                     </div>
                 </div>
@@ -302,6 +302,7 @@
                     success: function (data) {
                         var row = document.getElementsByClassName("container")[0];
                         row.innerHTML += data;
+                        document.getElementById("comment_Input").value = "";
                     },
                     error: function (xhr) {
                         alert("error");

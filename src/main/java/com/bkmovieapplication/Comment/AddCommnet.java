@@ -30,7 +30,7 @@ public class AddCommnet extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.print("<div class=\"dialogbox\">\n"
                 + "<div class=\"body\">\n"
-                + "<span>" + user.getUserName() + "</span>\n"
+                + "<span class=\"userName\">" + user.getUserName() + "</span>\n"
                 + "<span class=\"tip tip-left\"></span>\n"
                 + "<div class=\"message\">\n"
                 + "<span>" + comment + "</span>\n"

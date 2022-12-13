@@ -16,6 +16,7 @@ D:\UTE\LapTrinhWeb\Project\WebXemPhim\src\main\java\com\bkmovieapplication\Bookm
 D:\UTE\LapTrinhWeb\Project\WebXemPhim\src\main\java\com\bkmovieapplication\entity\Bookmarked.java
 D:\UTE\LapTrinhWeb\Project\WebXemPhim\src\main\java\com\bkmovieapplication\Admin\Popular.java
 D:\UTE\LapTrinhWeb\Project\WebXemPhim\src\main\java\com\bkmovieapplication\Bookmarked\DeleteAItemServlet.java
+D:\UTE\LapTrinhWeb\Project\WebXemPhim\src\main\java\com\bkmovieapplication\Search\LoadAllMovie.java
 D:\UTE\LapTrinhWeb\Project\WebXemPhim\src\main\java\com\bkmovieapplication\Admin\AdminDeleteMovieInfomation.java
 D:\UTE\LapTrinhWeb\Project\WebXemPhim\src\main\java\com\bkmovieapplication\Search\SearchByAjax.java
 D:\UTE\LapTrinhWeb\Project\WebXemPhim\src\main\java\com\bkmovieapplication\Bookmarked\BookmarkedServlet.java

@@ -4,6 +4,7 @@ import com.bkmovieapplication.entity.User;
 import com.bkmovieapplication.model.BookmarkedDB;
 import static com.bkmovieapplication.utility.CommonUtility.forwardToPage;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,14 +20,19 @@ public class AddToBookmarkedServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession sesstion = request.getSession();
         User user = (User) sesstion.getAttribute("user");
-        if (user == null) {
-            response.sendRedirect("login");
-            return;
-        }
-        String id = request.getParameter("mid");
+
+        Integer userid = user.getUserId();
+        String movieid = request.getParameter("mid");
+        PrintWriter out = response.getWriter();
         BookmarkedDB bookmarked = new BookmarkedDB(request, response);
-        bookmarked.addOrDelMovieToBookmarked(user.getUserId(),id);
-        response.sendRedirect("bookmarked");
+        //bookmarked.addOrDelMovieToBookmarked(user.getUserId(),id);
+        if (!bookmarked.checkMovieExits(userid, movieid)) {
+            bookmarked.addMovieToBookmarked(userid, movieid);
+            out.print("Added to bookmarked!");
+        } else {
+            bookmarked.delMovieToBookmarked(userid, movieid);
+            out.print("Removed to bookmarked!");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -31,13 +31,11 @@ const getMovieDetail = async (id) => {
 
 // Render carousel-item
 const renderCarouselItem = (item, data_detail, count) => {
-    // console.log(count[0]);
-    let tag = '<div class="carousel-item">';
+    let tag = `<div class="carousel-item"><span id="GetID" style="display: none;">${item.id}</span>  `;
     if (count[0] === 0) {
-        tag = `<div class="carousel-item active">`
+        tag = `<div class="carousel-item active"><span id="GetID" style="display: none;">${item.id}</span>  `
         count[0] += 1;
     }
-
     let image = `https://image.tmdb.org/t/p/original/${data_detail.backdrop_path}`;
 
     // Làm tròn data_detail.vote_average còn 1 số sau dấu phẩy
@@ -66,12 +64,8 @@ const renderCarouselItem = (item, data_detail, count) => {
         span_list += `<span class='me-2'>${data_detail.genres[i].name}</span>`;
     }
 
-    let movieid = data_detail.id;
-
-    return (`<a href="watch?moviechoosed=${movieid}">
-    ${tag}
+    return (`${tag}
         <div class="colCenter_carousel_child_cover"></div>
-        
         <div class="colCenter_carousel_content">
             <span class="star">
                 <span>${vote_average} <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
@@ -98,7 +92,7 @@ const renderCarouselItem = (item, data_detail, count) => {
             </div>
         </div>
         <img src="${image}" class="d-block w-100" alt="...">
-    </div></a>`
+    </div>`
     )
 }
 
@@ -115,10 +109,13 @@ getData().then((data) => {
 })
 
 
-
-
-
-
+function MoveToWatch() {
+    let carouselInner = document.getElementById('carousel-inner');
+    let active = carouselInner.getElementsByClassName('active')[0];
+    let id = active.getElementsByTagName('span')[0].innerHTML;
+    console.log(id);
+    window.location.href = `watch?moviechoosed=${id}`;
+}
 
 
 

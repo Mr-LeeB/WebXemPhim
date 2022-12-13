@@ -172,6 +172,20 @@ div#form {
 #userform .form-group input, #userform .form-group textarea {
     padding: 10px;
 }
+#verification_button{
+    background-color: #F7CA18;
+    color: #FFF;
+    border: 0;
+    border-radius: 0;
+    padding: 10px 20px;
+    font-size: 18px;
+    -webkit-transition: all .6s;
+    -moz-transition: all .6s;
+    transition: all .6s;
+    font-size: 15px;
+    margin-top: 15px;
+    color: #1c1e21;
+}
 #userform .form-group input.form-control {
     height: auto;
     background-color: rgba(237, 235, 250, 0.1);
