@@ -92,15 +92,13 @@ function ThetrClick(id) {
     });
 
     // Category
-    let categoryValue = document.getElementsByClassName('nowPlaying_category')[0];
-    let rating_group = document.getElementsByClassName('rating_group')[0];
-    let select = rating_group.getElementsByTagName('select')[0];
-    let optionList = select.getElementsByTagName('option');
-    for (let i of optionList) {
-        if (i.value === categoryValue.innerHTML) {
-            i.selected = true;
+    let categoryValue = currentLine.getElementsByClassName('nowPlaying_category')[0];
+    let optionList = document.querySelectorAll('.rating_group #select_category option');
+    optionList.forEach(element => {
+        if (element.value === categoryValue.innerHTML) {
+            element.selected = true;
         }
-    }
+    });
 
     // Backdrop Path
     let backdropPath = currentLine.getElementsByClassName('nowPlaying_imagemax')[0].innerHTML.trim();
@@ -203,6 +201,7 @@ function DeleteClick() {
     document.getElementById('returnData').click();
 }
 
+let movieID = document.getElementById('input_MovieID');
 let nameEnglish = document.getElementById('input_EnglishName');
 let nameVietNam = document.getElementById('input_VietnamName');
 let rating = document.getElementById('input_Rating');
@@ -263,11 +262,10 @@ function Add_ClearInfo() {
     // Description
     description.value = '';
 
-
 }
 function AddClick() {
     // Lấy ID
-    let movieID = document.getElementById('input_MovieID').value;
+    let ID = movieID.value;
 
     let type = '';
     for (let i of spanList1) {
@@ -281,6 +279,13 @@ function AddClick() {
         }
     }
     type = type.slice(0, -2);
+
+
+    // Kiểm tra rỗng các trường dữ liệu
+    if (movieID.value == '' || nameEnglish.value == '' || nameVietNam.value == '' || releasedate.value == '' || backdropPath.value == '' || posterPath.value == '' || trailerPath.value == '' || description.value == '' || type == '') {
+        alert('Vui lòng nhập đầy đủ thông tin');
+        return;
+    }
 
     category = Select.options[Select.selectedIndex].value;
 
@@ -296,7 +301,7 @@ function AddClick() {
     // console.log(trailerPath.value);
     // console.log(description.value);
 
-    // document.getElementById('returnData').href = "addmovie?movieid=" + movieID +
+    // document.getElementById('returnData').href = "addmovie?movieid=" + ID +
     //     "&nameEnglish=" + nameEnglish.value +
     //     "&nameVietNam=" + nameVietNam.value +
     //     "&rating=" + rating.value +
@@ -316,7 +321,7 @@ function AddClick() {
         url: "/WebXemPhim/CheckDuplicateID",
         type: "GET",
         data: {
-            movieID: movieID
+            movieID: ID
         },
 
         success: function (data) {
@@ -327,7 +332,7 @@ function AddClick() {
                     url: "/WebXemPhim/addmovie",
                     type: "GET",
                     data: {
-                        movieID: movieID,
+                        movieID: ID,
                         nameEnglish: nameEnglish.value,
                         nameVietNam: nameVietNam.value,
                         rating: rating.value,
@@ -341,10 +346,9 @@ function AddClick() {
                     },
                     success: function (data) {
                         location.reload();
-                        alert("Success");
                     },
                     error: function (error) {
-                        alert("Invalid data");
+                        alert("Kết nối bị lỗi");
                     }
                 })
                

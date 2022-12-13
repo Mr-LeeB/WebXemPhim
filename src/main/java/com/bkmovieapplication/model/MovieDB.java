@@ -85,6 +85,38 @@ public class MovieDB {
                 sqlDate, description, imagemax, imagemin, spanlist, trailerLink, category);
     }
 
+    public void getMovieUpComing() throws ServletException, IOException {
+        List<Movie> List = new ArrayList<>();
+        List = movieDAO.getMovieUpComing();
+        if (List != null) {
+            request.setAttribute("ListMovieUpComing", List);
+        }
+    }
+
+    public void getMovieHot() throws ServletException, IOException {
+        List<Movie> List = new ArrayList<>();
+        List = movieDAO.getMovieHot();
+        if (List != null) {
+            request.setAttribute("ListMovieHot", List);
+        }
+    }
+
+    public void getMovieTopRated() throws ServletException, IOException {
+        List<Movie> List = new ArrayList<>();
+        List = movieDAO.getMovieTopRated();
+        if (List != null) {
+            request.setAttribute("ListMovieTopRated", List);
+        }
+    }
+
+    public void getMoviePopular() throws ServletException, IOException {
+        List<Movie> List = new ArrayList<>();
+        List = movieDAO.getMoviePopular();
+        if (List != null) {
+            request.setAttribute("ListMoviePopular", List);
+        }
+    }
+
     public void getAMovie(String category) throws ServletException, IOException {
         List<Movie> List = new ArrayList<>();
         List = movieDAO.getCategoryMovie(category);

@@ -53,6 +53,8 @@ public class User implements Serializable {
     @Size(max = 10)
     @Column(name = "phoneNum")
     private String phoneNum;
+    @Column(name = "role")
+    private String role;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userid")
     private Collection<Bookmarked> bookmarkedCollection;
     @OneToMany(mappedBy = "userID")
@@ -66,12 +68,13 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public User(Integer userId, String userName, String email, String passWord, String phoneNum) {
+    public User(Integer userId, String userName, String email, String passWord, String phoneNum, String role) {
         this.userId = userId;
         this.userName = userName;
         this.email = email;
         this.passWord = passWord;
         this.phoneNum = phoneNum;
+        this.role = role;
     }
 
     public User(Integer userId) {
@@ -116,6 +119,12 @@ public class User implements Serializable {
 
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
+    }
+    public String getRole() {
+        return role;
+    }
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public Collection<Bookmarked> getBookmarkedCollection() {

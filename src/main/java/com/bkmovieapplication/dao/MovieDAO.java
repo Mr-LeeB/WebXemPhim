@@ -129,6 +129,119 @@ public class MovieDAO {
         return null;
     }
 
+    public List<Movie> getMovieUpComing() {
+        List<Movie> List = new ArrayList<>();
+        String query = "select * from " + dbquery + ".movie\n"
+                + "where category = 'UpComing'";
+        try {
+            conn = new DBContext().getConnection();// mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            // ps.setString(1, "UpComing");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                List.add(new Movie(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDate(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11)));
+            }
+            return List;
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+
+    public List<Movie> getMovieHot() {
+        List<Movie> List = new ArrayList<>();
+        String query = "select * from " + dbquery + ".movie\n"
+                + "where category = 'Hot'";
+        try {
+            conn = new DBContext().getConnection();// mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            // ps.setString(1, "Hot");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                List.add(new Movie(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDate(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11)));
+            }
+            return List;
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public List<Movie> getMovieTopRated() {
+        List<Movie> List = new ArrayList<>();
+        String query = "select * from " + dbquery + ".movie\n"
+                + "where category = 'TopRated'";
+        try {
+            conn = new DBContext().getConnection();// mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            // ps.setString(1, "Top Rated");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                List.add(new Movie(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDate(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11)));
+            }
+            return List;
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public List<Movie> getMoviePopular() {
+        List<Movie> List = new ArrayList<>();
+        String query = "select * from " + dbquery + ".movie\n"
+                + "where category = 'Popular'";
+        try {
+            conn = new DBContext().getConnection();// mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            // ps.setString(1, "Popular");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                List.add(new Movie(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDate(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11)));
+            }
+            return List;
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
     public List<Movie> getALLMovie() {
         List<Movie> List = new ArrayList<>();
         String query = "select * from " + dbquery + ".movie";

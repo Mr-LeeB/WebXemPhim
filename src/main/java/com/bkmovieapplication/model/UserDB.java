@@ -23,6 +23,56 @@ public class UserDB {
         this.response = response;
         userDAO = new UserDAO();
     }
+    // addUser
+    public void addUser() throws ServletException, IOException {
+        String username = request.getParameter("userName");
+        String email = request.getParameter("email");
+        String password = request.getParameter("passWord");
+        String phonenum = request.getParameter("phoneNum");
+        String role = request.getParameter("role");
+
+        userDAO.addUser(username, email, password, phonenum, role);
+    }
+
+    public void deleteUser() throws ServletException, IOException {
+        int userId = Integer.parseInt(request.getParameter("userID"));
+        userDAO.deleteUser(userId);
+    }
+
+    public void updateUser() throws ServletException, IOException {
+        int userId = Integer.parseInt(request.getParameter("userID"));
+        String username = request.getParameter("userName");
+        String email = request.getParameter("email");
+        String password = request.getParameter("passWord");
+        String phonenum = request.getParameter("phoneNum");
+        String role = request.getParameter("role");
+
+        User user = new User(userId, username, email, password, phonenum, role);
+        userDAO.updateUser(user);
+        
+    }
+
+    public User getaUser() throws ServletException, IOException {
+        int userId = Integer.parseInt(request.getParameter("userID"));
+        User user = userDAO.getaUser(userId);
+        if (user != null) {
+            return user;
+        }
+        return null;
+    }
+    public void getUserAccount() throws ServletException, IOException {
+        List<User> list = userDAO.getUserAccount();
+        if (list != null) {
+            request.setAttribute("ListUserAccount", list);
+        }
+    }
+    
+    public void getAdminAccount() throws ServletException, IOException {
+        List<User> list = userDAO.getAdminAccount();
+        if (list != null) {
+            request.setAttribute("ListAdminAccount", list);
+        }
+    }
 
     public void login() throws ServletException, IOException {
         String email = request.getParameter("email");

@@ -1,5 +1,40 @@
 /* Kien */
 
+/* Chỉnh logo */
+.h-10 {
+	height: 2.5rem;
+}
+.w-10{
+	width: 2.5rem;
+}
+.exec_click{
+    text-decoration: none;
+    color: gray;
+	width: 100%;
+}
+.exec_click:hover{
+	text-decoration: none;
+}
+.colLeft_logo__content{
+    cursor: pointer;
+	justify-content: space-between;
+	align-items: center;
+}
+.colLeft__Logo {
+    padding: 0;
+}
+.colLeft__text {
+    display: inline;
+    font-size: 1.5rem;
+    padding: 5px 0 5px 15px;
+    margin-bottom: 0;
+}
+.colLeft__text span:first-child {
+    color: white;
+}
+/* End chỉnh logo  */
+
+
 .nowPlaying_tr {
 	cursor: pointer;
 }
