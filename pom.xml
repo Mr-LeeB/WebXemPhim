@@ -20,10 +20,21 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>mssql-jdbc</artifactId>
-            <version>8.4.1.jre14</version>
-        </dependency>      
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10</version>
+        </dependency>    
         <!-- https://mvnrepository.com/artifact/org.hibernate.common/hibernate-commons-annotations -->
         <dependency>
             <groupId>org.hibernate.common</groupId>
@@ -36,7 +47,7 @@
             <artifactId>hibernate-jpa-2.0-api</artifactId>
             <version>1.0.1.Final</version>
         </dependency>
-         <!--https://mvnrepository.com/artifact/org.hibernate/hibernate-core--> 
+        <!--https://mvnrepository.com/artifact/org.hibernate/hibernate-core--> 
         <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
@@ -126,7 +137,7 @@
     <build>
         <finalName>WebXemPhim</finalName>
         <plugins>
-<!--            <plugin>
+            <!--            <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat9-maven-plugin</artifactId>
                 <version>2.2</version>
@@ -139,7 +150,7 @@
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>3.0.2</version>
             </plugin>
-<!--            <plugin>
+            <!--            <plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.2</version>
             </plugin>-->
@@ -164,7 +175,7 @@
                 <artifactId>maven-site-plugin</artifactId>
                 <version>3.7.1</version>
             </plugin>
-<!--            <plugin>
+            <!--            <plugin>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
                 <version>2.0.6</version>
             </plugin>-->

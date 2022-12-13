@@ -29,7 +29,7 @@ public class BookmarkedDB {
     }
     public void addOrDelMovieToBookmarked(Integer userId, String movieId) throws ServletException, IOException {
         boolean check = bookmarkedDAO.checkExit(userId,movieId);
-        if(check)
+        if(!check)
             bookmarkedDAO.delete(userId, movieId);
         else
             bookmarkedDAO.add(userId,movieId);

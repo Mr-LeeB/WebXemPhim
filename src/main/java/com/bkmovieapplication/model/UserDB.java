@@ -10,6 +10,8 @@ import java.io.IOException;
 import javax.servlet.http.Cookie;
 
 import static com.bkmovieapplication.utility.CommonUtility.forwardToPage;
+import java.util.List;
+import javax.servlet.http.HttpSession;
 
 public class UserDB {
 
@@ -23,6 +25,57 @@ public class UserDB {
         userDAO = new UserDAO();
     }
 
+    public void addUser() throws ServletException, IOException {
+        String username = request.getParameter("userName");
+        String email = request.getParameter("email");
+        String password = request.getParameter("passWord");
+        String phonenum = request.getParameter("phoneNum");
+        String role = request.getParameter("role");
+
+        userDAO.addUser(username, email, password, phonenum, role);
+    }
+
+    public void deleteUser() throws ServletException, IOException {
+        int userId = Integer.parseInt(request.getParameter("userID"));
+        userDAO.deleteUser(userId);
+    }
+
+    public void updateUser() throws ServletException, IOException {
+        int userId = Integer.parseInt(request.getParameter("userID"));
+        String username = request.getParameter("userName");
+        String email = request.getParameter("email");
+        String password = request.getParameter("passWord");
+        String phonenum = request.getParameter("phoneNum");
+        String role = request.getParameter("role");
+
+        User user = new User(userId, username, email, password, phonenum, role);
+        userDAO.updateUser(user);
+
+    }
+
+    public User getaUser() throws ServletException, IOException {
+        int userId = Integer.parseInt(request.getParameter("userID"));
+        User user = userDAO.getaUser(userId);
+        if (user != null) {
+            return user;
+        }
+        return null;
+    }
+
+    public void getUserAccount() throws ServletException, IOException {
+        List<User> list = userDAO.getUserAccount();
+        if (list != null) {
+            request.setAttribute("ListUserAccount", list);
+        }
+    }
+
+    public void getAdminAccount() throws ServletException, IOException {
+        List<User> list = userDAO.getAdminAccount();
+        if (list != null) {
+            request.setAttribute("ListAdminAccount", list);
+        }
+    }
+
     public void update() throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
 
@@ -34,15 +87,15 @@ public class UserDB {
         if (!pass.equals(user.getPassWord())) {
             forwardToPage("profile", "Update failed. Please enter correct password", request, response);
         }
-        if (newpass != "") {
+        if (!"".equals(newpass)) {
             userDAO.update(user.getUserId(), username, email, newpass, phonenum);
             request.getSession().removeAttribute("user");
         } else {
             userDAO.update(user.getUserId(), username, email, pass, phonenum);
-            User newuser = new User(user.getUserId(), username, email, pass, phonenum);
-            request.getSession().setAttribute("user",newuser);
+            User newuser = new User(user.getUserId(), username, email, pass, phonenum, "user");
+            request.getSession().setAttribute("user", newuser);
         }
-        
+
         forwardToPage("profile", "Update Success", request, response);
     }
 
@@ -56,6 +109,11 @@ public class UserDB {
             // request is active but the value stored in the session stays on the server as
             // long as the session
             request.getSession().setAttribute("user", loginResult);
+            if ("admin".equals(loginResult.getRole())) {
+                request.getSession().setAttribute("admin", true);
+            } else {
+                request.getSession().setAttribute("admin", false);
+            }
             request.getSession().setMaxInactiveInterval(60 * 60 * 24);
             Cookie e = new Cookie("emailC", loginResult.getEmail());
             Cookie u = new Cookie("userC", loginResult.getUserName());
@@ -85,7 +143,7 @@ public class UserDB {
         } else {
             boolean a = userDAO.checkAccountExist(username, email);
             if (a == false) {
-                userDAO.create(username, email, password, phonenum);
+                userDAO.addUser(username, email, password, phonenum, "user");
                 request.setAttribute("email", email);
                 forwardToPage("/page/login.jsp", "Sign Up Success!", request, response);
             } else {
@@ -93,4 +151,15 @@ public class UserDB {
             }
         }
     }
+
+    public boolean checkCode() {
+        String usercode = request.getParameter("usercode");
+        HttpSession session = request.getSession();
+        String code = (String) session.getAttribute("code");
+        if (!code.equals(usercode)) {
+            return false;
+        }
+        return true;
+    }
+
 }

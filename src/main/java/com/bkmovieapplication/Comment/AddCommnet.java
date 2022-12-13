@@ -23,19 +23,20 @@ public class AddCommnet extends HttpServlet {
 
         String movieID = request.getParameter("movieID");
         String comment = request.getParameter("comment");
+        
         CommentDB cmt = new CommentDB(request, response);
         cmt.addComment(movieID, user.getUserId(), comment);
 
         PrintWriter out = response.getWriter();
         out.print("<div class=\"dialogbox\">\n"
-                + "                                        <div class=\"body\">\n"
-                + "                                            <span>" + user.getUserName() + "</span>\n"
-                + "                                            <span class=\"tip tip-left\"></span>\n"
-                + "                                            <div class=\"message\">\n"
-                + "                                                <span>" + comment + "</span>\n"
-                + "                                            </div>\n"
-                + "                                        </div>\n"
-                + "                                    </div>");
+                + "<div class=\"body\">\n"
+                + "<span>" + user.getUserName() + "</span>\n"
+                + "<span class=\"tip tip-left\"></span>\n"
+                + "<div class=\"message\">\n"
+                + "<span>" + comment + "</span>\n"
+                + "</div>\n"
+                + "</div>\n"
+                + "</div>");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
