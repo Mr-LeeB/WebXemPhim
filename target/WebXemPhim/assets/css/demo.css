@@ -34,6 +34,51 @@
 }
 /* End chỉnh logo  */
 
+/* DropDown Search  */
+.navbar .selectDropdown,
+.navbar .selectDropdown * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.navbar .selectDropdown {
+	width: 200px;
+	margin-left: 19px;
+	position: absolute; 
+	left: 28rem;
+}
+.navbar .selectDropdown select {
+	font-size: 0.8rem;
+    font-weight: normal;
+    max-width: 100%;
+    padding: 5px 24px 5px 10px;
+    border: none;
+    appearance: none;
+    background-color: #363B4C;
+    border-radius: 5px;
+    color: white;
+    height: 34px;
+    width: 148px;
+}
+.navbar .selectDropdown select:active,
+.navbar .selectDropdown select:focus {
+	outline: none;
+	box-shadow: none;
+}
+.navbar .selectDropdown:after {
+	content: "";
+    position: absolute;
+    top: 50%;
+    right: 63px;
+    width: 0;
+    height: 0;
+    margin-top: -2px;
+    border-top: 5px solid #aaa;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+
+/* End Dropdown Search  */
 
 .nowPlaying_tr {
 	cursor: pointer;
@@ -206,6 +251,8 @@
 	border-right: 5px solid transparent;
 	border-left: 5px solid transparent;
 }
+
+/* End Dropdown menu */
 
 .modalcontentEdit .modal-body .input_Backdrop,
 .modalcontentEdit .modal-body .input_Poster,
