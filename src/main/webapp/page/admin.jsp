@@ -328,20 +328,6 @@
 								<p>Dashboard</p>
 								<span class="caret"></span>
 							</a>
-							<div class="collapse" id="dashboard">
-								<ul class="nav nav-collapse">
-									<li>
-										<a href="../demo1/index.html">
-											<span class="sub-item">Dashboard 1</span>
-										</a>
-									</li>
-									<li>
-										<a href="../demo2/index.html">
-											<span class="sub-item">Dashboard 2</span>
-										</a>
-									</li>
-								</ul>
-							</div>
 						</li>
 						<li class="nav-section">
 							<span class="sidebar-mini-icon">
@@ -415,10 +401,6 @@
 		<div class="main-panel">
 			<div class="content mt-0">
 				<div class="page-inner" style="padding-left: 0; padding-right: 0;">
-					<div class="mt-2 mb-4">
-						<h2 class="text-white pb-2">Welcome back, Hizrian!</h2>
-						<h5 class="text-white op-7 mb-4">Yesterday I was clever, so I wanted to change the world. Today I am wise, so I am changing myself.</h5>
-					</div>
 					<div class="row">
 						<div class="col-md-4">
 							<div class="card card-dark bg-primary-gradient">
@@ -905,32 +887,6 @@
 					</div>
 				</div>
 			</div>
-			<footer class="footer">
-				<div class="container-fluid">
-					<nav class="pull-left">
-						<ul class="nav">
-							<li class="nav-item">
-								<a class="nav-link" href="https://www.themekita.com">
-									ThemeKita
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">
-									Help
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">
-									Licenses
-								</a>
-							</li>
-						</ul>
-					</nav>
-					<div class="copyright ml-auto">
-						2018, made with <i class="fa fa-heart heart text-danger"></i> by <a href="https://www.themekita.com">ThemeKita</a>
-					</div>				
-				</div>
-			</footer>
 		</div>
 		
 		<!-- Custom template | don't include it in your project! -->

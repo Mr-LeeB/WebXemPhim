@@ -31,13 +31,11 @@ const getMovieDetail = async (id) => {
 
 // Render carousel-item
 const renderCarouselItem = (item, data_detail, count) => {
-    // console.log(count[0]);
-    let tag = '<div class="carousel-item">';
-    if(count[0]===0){
-        tag = `<div class="carousel-item active">`
-        count[0]+=1;
+    let tag = `<div class="carousel-item"><span id="GetID" style="display: none;">${item.id}</span>  `;
+    if (count[0] === 0) {
+        tag = `<div class="carousel-item active"><span id="GetID" style="display: none;">${item.id}</span>  `
+        count[0] += 1;
     }
-
     let image = `https://image.tmdb.org/t/p/original/${data_detail.backdrop_path}`;
 
     // Làm tròn data_detail.vote_average còn 1 số sau dấu phẩy
@@ -60,8 +58,8 @@ const renderCarouselItem = (item, data_detail, count) => {
     }
 
     let span_list = '';
-    for(let i=0; i<data_detail.genres.length; i++){
-        if(i===4)
+    for (let i = 0; i < data_detail.genres.length; i++) {
+        if (i === 4)
             break;
         span_list += `<span class='me-2'>${data_detail.genres[i].name}</span>`;
     }
@@ -105,15 +103,19 @@ getData().then((data) => {
     data.forEach((item) => {
         getMovieDetail(item.id).then((data_detail) => {
             let carousel_item = renderCarouselItem(item, data_detail, count);
-            document.getElementById('carousel-inner').innerHTML+=carousel_item;
+            document.getElementById('carousel-inner').innerHTML += carousel_item;
         })
     })
 })
 
 
-
-
-
+function MoveToWatch() {
+    let carouselInner = document.getElementById('carousel-inner');
+    let active = carouselInner.getElementsByClassName('active')[0];
+    let id = active.getElementsByTagName('span')[0].innerHTML;
+    console.log(id);
+    window.location.href = `https://localhost:44394/Watch?id=${id}`;
+}
 
 
 

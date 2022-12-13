@@ -24,6 +24,7 @@
                         <div class="colLeft_Menu">MENU</div>
                         <div class="colLeft_menu_item">
                             <a class="item active">
+                                
                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="25"
                                      width="25" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -135,10 +136,9 @@
                             </span>
                         </div>
                     </div>
-                    <div class="colCenter_carousel">                                          
-                        <a class="exec_click" href="watch">
+                    <div class="colCenter_carousel" style="position: relative;">
                                <div class="colCenter_carousel_child">
-                                   <div class="colCenter_carousel_child_cover_total">
+                                   <div class="colCenter_carousel_child_cover_total" onclick="MoveToWatch()">
                                        <div class="support_cover">
                                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" class="text-white"
                                                 height="35" width="35" xmlns="http://www.w3.org/2000/svg">
@@ -151,8 +151,7 @@
                                    <!-- CAROUSEL -->
                                    <!-- data-bs-ride="carousel" -->
                                    <div id="carouselExampleCaptions" class="carousel slide">
-                                       <div id="carousel-inner" class="carousel-inner">                 
-                                       </div>
+                                       <div id="carousel-inner" class="carousel-inner"></div>
                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
                                                data-bs-slide="prev">
                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -165,7 +164,6 @@
                                        </button>
                                    </div>
                                </div>
-                           </a>
                         </div>
                         <div class="popular mt-5">
                             <div class="title__mini">Popular</div>

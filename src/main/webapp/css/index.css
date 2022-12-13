@@ -20,6 +20,15 @@ body {
     text-decoration: none;
     color: gray;
 }
+/* #exec_click{
+    display: block;
+    width: 830px;
+    height: 340px;
+    position: absolute;
+    top: 43px;
+    left: 11px;
+} */
+
 /* COL LEFT */
 
 .colLeft {

@@ -49,7 +49,15 @@
                 <!-- Navbar Header -->
                 <nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark">
 
-                    <div class="container-fluid">
+                    <div class="container-fluid" style="position: relative;">
+                        <div class="selectDropdown">
+                            <select id="select_Search" name="category">
+                                <option value="Name">Name</option>
+                                <option value="Rating">Rating</option>
+                                <option value="Release date">Release date</option>
+                                <option value="Type">Type</option>
+                            </select>
+                        </div>
                         <div class="collapse" id="search-nav">
                             <form class="navbar-left navbar-form nav-search mr-md-3">
                                 <div class="input-group">
@@ -58,7 +66,8 @@
                                             <i class="fa fa-search search-icon"></i>
                                         </button>
                                     </div>
-                                    <input type="text" placeholder="Search ..." class="form-control">
+                                    <input id="input_Search" type="text" placeholder="Search ..." class="form-control"
+                                        oninput="Search()">
                                 </div>
                             </form>
                         </div>
@@ -339,20 +348,6 @@
                                     <p>Dashboard</p>
                                     <span class="caret"></span>
                                 </a>
-                                <div class="collapse" id="dashboard">
-                                    <ul class="nav nav-collapse">
-                                        <li>
-                                            <a href="../demo1/index.html">
-                                                <span class="sub-item">Dashboard 1</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="../demo2/index.html">
-                                                <span class="sub-item">Dashboard 2</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
                             </li>
                             <li class="nav-section">
                                 <span class="sidebar-mini-icon">
@@ -461,7 +456,7 @@
                                 <!-- <div class="card-sub">									
                                     This is the basic table view of the ready dashboard :
                                 </div> -->
-                                <table class="table mt-0">
+                                <table id="main_Table" class="table mt-0">
                                     <thead>
                                         <tr>
                                             <th style="font-size: 17px;" scope="col">#</th>
@@ -512,9 +507,11 @@
                                                 <h5 class="modal-title" id="exampleModalCenterTitle">
                                                     <span class="title">MOVIE INFORMATION</span>
                                                     <span class="movieID_infor" id="movieID_infor"></span>
-                                                    <span id="input_MovieIDSpan" class="input-group input_MovieIDSpan" style="display: none;">
-                                                        <input id="input_MovieID" required="" type="text" name="imagemin"
-                                                            autocomplete="off" class="input" style="width: 100%;">
+                                                    <span id="input_MovieIDSpan" class="input-group input_MovieIDSpan"
+                                                        style="display: none;">
+                                                        <input id="input_MovieID" required="" type="text"
+                                                            name="imagemin" autocomplete="off" class="input"
+                                                            style="width: 100%;">
                                                         <label class="user-label">Movie ID</label>
                                                     </span>
                                                 </h5>

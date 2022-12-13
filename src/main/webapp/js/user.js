@@ -118,7 +118,35 @@ function AddClick(role){
 
 }
 
+function Search() {
+    let typeSearch;
+    let value = $("#select_Search option:selected").val();
+    if (value == "Username") {
+        typeSearch = 1;
+    } else if (value == "Email") {
+        typeSearch = 2;
+    } else if (value == "Password") {
+        typeSearch = 3;
+    } else if (value == "Phone Number") {
+        typeSearch = 4;
+    }
 
+    let input = document.getElementById('input_Search');
+    let filter = input.value.toUpperCase();
+    let tr = $('#main_Table tbody tr');
+
+    for (let i = 0; i < tr.length; i++) {
+        let td = tr[i].getElementsByTagName('td')[typeSearch];
+        if (td) {
+            let textValue = td.textContent || td.innerText;
+            if (textValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
 
 
 
