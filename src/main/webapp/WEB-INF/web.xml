@@ -7,8 +7,4 @@
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-    <context-param>
-        <param-name>database</param-name>
-        <param-value>oj3bOO0Agn</param-value>
-    </context-param>
 </web-app>

@@ -13,7 +13,7 @@ public class UserDAO {
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
-    String dbquery = "quanlyphimdb";//"oj3bOO0Agn";
+    String dbquery = "oj3bOO0Agn";//"oj3bOO0Agn";"quanlyphimdb"
 
     public List<User> getAdminAccount() {
         String query = "select * from " + dbquery + ".user\n"
