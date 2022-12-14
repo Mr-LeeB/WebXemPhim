@@ -18,7 +18,7 @@ public class MovieDAO {
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
-    String dbquery = "quanlyphimdb";//  "oj3bOO0Agn";"quanlyphimdb";
+    String dbquery = "oj3bOO0Agn";//  "oj3bOO0Agn";"quanlyphimdb";
 
     
     public List<Movie> getMovieUpComing() {

@@ -18,12 +18,15 @@ public class AddToBookmarkedServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         HttpSession sesstion = request.getSession();
         User user = (User) sesstion.getAttribute("user");
-
         Integer userid = user.getUserId();
+        
         String movieid = request.getParameter("mid");
+        
         PrintWriter out = response.getWriter();
+        
         BookmarkedDB bookmarked = new BookmarkedDB(request, response);
         //bookmarked.addOrDelMovieToBookmarked(user.getUserId(),id);
         if (!bookmarked.checkMovieExits(userid, movieid)) {
