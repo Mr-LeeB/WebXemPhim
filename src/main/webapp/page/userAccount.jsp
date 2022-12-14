@@ -33,7 +33,7 @@
             <div class="main-header" style="top: 0; left: 0;">
                 <!-- Logo Header -->
                 <div class="logo-header" data-background-color="dark2">
-                    <a class="exec_click" href="">
+                    <a class="exec_click" href="home">
                         <div class="colLeft_logo__content row">
                             <span class="colLeft__Logo col-2 ps-48">
                                 <img class="w-10 h-10" src="image/index/logo.png" alt="#">
@@ -290,7 +290,7 @@
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="#">Account Setting</a>
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Logout</a>
+                                            <a class="dropdown-item" href="logout">Logout</a>
                                         </li>
                                     </div>
                                 </ul>
